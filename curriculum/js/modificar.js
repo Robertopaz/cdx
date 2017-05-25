@@ -762,13 +762,14 @@ function DireccionIndividualizadaModificar(form,param){
 	numa= form.alumno.value;
 	esta= form.state.value;
 	institucion= form.inst.value;
+	otraInst = form.inpOtrInst.value;
 
 	var flag = "direcc";
 	enviar=new XMLHttpRequest;
 	  	enviar.open('POST','updatesRegistros.php');
 	  	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	  	enviar.send('clave='+profesor+'&tit='+tesis+'&niv='+nivel+'&fecinic='+fechai+'&fecfin='+fechat+
-	  	'&nalum='+numa+'&resestado='+esta+'&ies='+institucion+'&flag='+flag+'&p='+param);
+	  	'&nalum='+numa+'&resestado='+esta+'&ies='+institucion+'&oies='+otraInst+'&flag='+flag+'&p='+param);
 	  	enviar.onreadystatechange = function(){
 	  		if(enviar.readyState == 4 && enviar.status == 200){
 	  			respuesta=enviar.responseText;

@@ -246,9 +246,14 @@ include 'conex.php';
 		$alumno=$_POST['nalum'];
 		$estado=$_POST['resestado'];
 		$institu=$_POST['ies'];
+		$otraInst = $_POST['oies'];
 
-	
-			$sql = "UPDATE direccionindividualizada SET titulo='$titulo',idEstudio=$nivel,fechaInicio='$fechai',fechaFin='$fechaf',numAlumnos=$alumno,idEstado=$estado,cveInstitucion=$institu,paraCurriculum=0 WHERE cveDireccionInd=".$parametro;		
+		if (is_null($otraInst) || $otraInst=="") {
+			$otraInst=" ";
+		}
+
+		
+			$sql = "UPDATE direccionindividualizada SET titulo='$titulo',idEstudio=$nivel,fechaInicio='$fechai',fechaFin='$fechaf',numAlumnos=$alumno,idEstado=$estado,cveInstitucion=$institu,nombInstitucion='$otraInst',paraCurriculum=0 WHERE cveDireccionInd=".$parametro;		
 			if(mysqli_query($con, $sql)){	
 				echo"OK";
 			}else{
