@@ -4,7 +4,7 @@ include 'up.php';
 include 'conex.php';
 $con = Conectarse();
 $parametro=$_GET['p'];
- 	echo $sql="SELECT direccionindividualizada.*, estadoactual.Estado, nivelestudio.estudio, institucion.nombreInst FROM `direccionindividualizada` INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio WHERE cveDireccionInd=".$parametro;
+ 	$sql= "SELECT direccionindividualizada.*, estadoactual.Estado, nivelestudio.estudio, institucion.nombreInst FROM `direccionindividualizada` INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio WHERE cveDireccionInd=".$parametro;
  	/*la variable sql realiza un query para obtener los datos de la direccion actual del maestro, utilizando su clave de registro como parametro de busqueda*/
  	$resultado=mysqli_query($con,$sql);
 	$row = mysqli_fetch_row($resultado);
