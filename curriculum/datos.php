@@ -1,5 +1,6 @@
 <?php 
 	// textos y fecha con comillas, las comillas simples se pueden o no poner
+// YA LO PUEDE MODIFICAR JAJA
 	session_start();
 	include('conex.php');
 	$con = Conectarse();	
