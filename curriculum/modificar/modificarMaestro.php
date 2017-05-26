@@ -28,7 +28,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Genero</h4></div>
 	   		<div class="div3"> <select style="width: 190px;" id="sex" onblur="validar2(this.id)">
-	   			<option style="display: none;">Seleeciona el Genero</option>
+	   			<option style="display: none;">Selecciona el Genero</option>
 	   			<option value="1">Masculino</option>
 	   			<option value="0">Femenino</option>
 	   		</select></div>	   		

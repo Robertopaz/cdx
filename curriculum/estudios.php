@@ -27,7 +27,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><select style="width: 200px;" id="clv" onblur="validar2(this.id)">
-	   			<option style="display: none;">Seleeciona...</option>
+	   			<option style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>

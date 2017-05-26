@@ -32,7 +32,7 @@ $parametro=$_GET['p'];
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Genero</h4></div>
 	   		<div class="div3"> <select style="width: 190px;" id="sex" >
-	   			<option style="display: none;">Seleeciona el Genero</option>
+	   			<option style="display: none;">Selecciona el Genero</option>
 	   			<option value="1"<?php if ($row[2]==1) {
 	   				echo "Selected";
 	   			} ?>>Masculino</option>

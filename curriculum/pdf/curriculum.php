@@ -1,10 +1,11 @@
 <?php
  
 require ('../conex.php');
+$link = Conectarse();
 
-$link=mysql_connect("localhost","root","");
+/*$link=mysql_connect("localhost","root","");
 mysql_select_db("curriculum",$link);
-$dbname = "curriculum";
+$dbname = "curriculum";*/
 
 date_default_timezone_set('UTC');
     
@@ -33,82 +34,82 @@ date_default_timezone_set('UTC');
  
  //Profesor<-
     //$selectProfesor = "SELECT * FROM profesor WHERE cveProfesor = $cveProfesor LIMIT 1";
-    $selectProfesor = "SELECT * FROM $dbname.profesor p, $dbname.edoCivil e, $dbname.pais c WHERE cveProfesor = $cveProfesor AND p.idEdoCivil = e.idEdoCivil AND ".
+    $selectProfesor = "SELECT * FROM profesor p, edoCivil e, pais c WHERE cveProfesor = $cveProfesor AND p.idEdoCivil = e.idEdoCivil AND ".
     "p.idPais = c.idPais LIMIT 1";
-    $resProf = mysql_query($selectProfesor, $link);
+    $resProf = mysqli_query($link, $selectProfesor);
     
   //Datos laborales<-
-    $selectLaboral = "SELECT * FROM $dbname.datoslaborales a, $dbname.institucion i WHERE cveProfesor = $cveProfesor AND a.cveInstitucion = i.cveInstitucion";
-    $resLaboral = mysql_query($selectLaboral, $link);
-    $numLaboral = mysql_num_rows($resLaboral);
+    $selectLaboral = "SELECT * FROM datoslaborales a, institucion i WHERE cveProfesor = $cveProfesor AND a.cveInstitucion = i.cveInstitucion";
+    $resLaboral = mysqli_query($link, $selectLaboral);
+    $numLaboral = mysqli_num_rows($resLaboral);
 
   //Dirección individualizada**
-    $selectDireccion = "SELECT * FROM $dbname.direccionIndividualizada d, $dbname.institucion i, $dbname.EstadoActual e, $dbname.nivelEstudio n WHERE cveProfesor = $cveProfesor AND ".
+    $selectDireccion = "SELECT * FROM direccionIndividualizada d, institucion i, EstadoActual e, nivelEstudio n WHERE cveProfesor = $cveProfesor AND ".
     "d.cveInstitucion = i.cveInstitucion AND e.idEstado = d.idEstado AND n.idEstudio = d.idEstudio;";
     /*$selectDireccion = "SELECT d.titulo, d.grado, i.nombreInst, d.fechaInicio, d.fechaFin, d.numAlumnos, d.estado, d.paraCurriculum FROM ".
     "direccionindividualizada d, institucion i WHERE cveProfesor = $cveProfesor AND d.cveInstitucion = i.cveInstitucion";*/
-    $resDireccion = mysql_query($selectDireccion, $link);
-    $numDireccion = mysql_num_rows($resDireccion);
+    $resDireccion = mysqli_query($link,$selectDireccion);
+    $numDireccion = mysqli_num_rows($resDireccion);
 
   //Docencia<-
     $selectDocencia = "SELECT a.dependencia, a.fechaInicio, a.numAlumnos, a.duracionSemanas, a.horasAsesoriaMes, a.horasSemana, i.nombreInst,
-    e.estudio, c.nombreCurso FROM $dbname.docencia a, $dbname.institucion i, $dbname.curso c, $dbname.nivelEstudio e WHERE cveProfesor = $cveProfesor AND a.cveInstitucion = i.cveInstitucion
+    e.estudio, c.nombreCurso FROM docencia a, institucion i, curso c, nivelEstudio e WHERE cveProfesor = $cveProfesor AND a.cveInstitucion = i.cveInstitucion
     AND a.cveCurso = c.cveCurso AND a.idEstudio = e.idEstudio";
-    $resDocencia = mysql_query($selectDocencia, $link);
-    $numDocencia = mysql_num_rows($resDocencia);
+    $resDocencia = mysqli_query($link, $selectDocencia);
+    $numDocencia = mysqli_num_rows($resDocencia);
 
   //Estudios<-
     $selectEstudios = "SELECT e.estudioEn, e.institucionNoCatalogo, e.disciplinaEstudio, e.fechaInicio, 
     e.fechaFin, e.fechaObtencion, n.estudio, a.area, i.nombreInst, i.cveInstitucion, p.nombrePais FROM 
-    $dbname.estudio e, $dbname.pais p, $dbname.institucion i, $dbname.Area a, $dbname.nivelEstudio n  WHERE cveProfesor = $cveProfesor 
+    estudio e, pais p, institucion i, Area a, nivelEstudio n  WHERE cveProfesor = $cveProfesor 
     AND e.idPais = p.idPais AND e.cveInstitucion = i.cveInstitucion 
     AND e.idEstudio = n.idEstudio AND a.idArea = e.idArea";
-    $resEstudios = mysql_query($selectEstudios, $link);
-    $numEstudios = mysql_num_rows($resEstudios);
+    $resEstudios = mysqli_query($link, $selectEstudios);
+    $numEstudios = mysqli_num_rows($resEstudios);
     
   //Gestión Académica<-
-    $selectGestion = "SELECT * FROM $dbname.gestionacademica WHERE cveProfesor = $cveProfesor";
-    $resGestion = mysql_query($selectGestion, $link);
-    $numGestion = mysql_num_rows($resGestion);
+    $selectGestion = "SELECT * FROM gestionacademica WHERE cveProfesor = $cveProfesor";
+    $resGestion = mysqli_query($link, $selectGestion);
+    $numGestion = mysqli_num_rows($resGestion);
     
   //LGAC<-
-    $selectLGAC = "SELECT * FROM $dbname.LGAC WHERE cveProfesor = $cveProfesor";
-    $resLGAC = mysql_query($selectLGAC, $link);
-    $numLGAC = mysql_num_rows($resLGAC);
+    $selectLGAC = "SELECT * FROM LGAC WHERE cveProfesor = $cveProfesor";
+    $resLGAC = mysqli_query($link, $selectLGAC);
+    $numLGAC = mysqli_num_rows($resLGAC);
     
   //Premios<-
-    $selectPremios = "SELECT * FROM $dbname.premio p, $dbname.institucion i WHERE cveProfesor = $cveProfesor AND p.cveInstitucion = i.cveInstitucion";
-    $resPremios = mysql_query($selectPremios, $link);
-    $numPremios = mysql_num_rows($resPremios);
+    $selectPremios = "SELECT * FROM premio p, institucion i WHERE cveProfesor = $cveProfesor AND p.cveInstitucion = i.cveInstitucion";
+    $resPremios = mysqli_query($link, $selectPremios);
+    $numPremios = mysqli_num_rows($resPremios);
     
   //Producción Académica**
   
     //$selectAsCon = "SELECT * FROM asesoriaConsultoria WHERE cveProfesor = $cveProfesor";
-    $selectAsCon = "SELECT * FROM $dbname.asesoriaConsultoria a, $dbname.pais p, $dbname.EstadoActual e WHERE cveProfesor = $cveProfesor AND a.idPais = p.idPais ".
+    $selectAsCon = "SELECT * FROM asesoriaConsultoria a, pais p, EstadoActual e WHERE cveProfesor = $cveProfesor AND a.idPais = p.idPais ".
     "AND e.idEstado = a.idEstado";
-    $resAsCon = mysql_query($selectAsCon, $link);
-    $numAsCon = mysql_num_rows($resAsCon);
+    $resAsCon = mysqli_query($link, $selectAsCon);
+    $numAsCon = mysqli_num_rows($resAsCon);
 
-    $selectProduccion = "SELECT * FROM $dbname.produccionAcademica a, $dbname.pais c, $dbname.proposito p, $dbname.EstadoActual e WHERE cveProfesor = $cveProfesor AND ".
+    $selectProduccion = "SELECT * FROM produccionAcademica a, pais c, proposito p, EstadoActual e WHERE cveProfesor = $cveProfesor AND ".
     "a.idPais = c.idPais AND p.idProposito = a.idProposito AND a.idEstado = e.idEstado";
-    $resProduccion = mysql_query($selectProduccion, $link);
-    $numProduccion = mysql_num_rows($resProduccion);
+    $resProduccion = mysqli_query($link, $selectProduccion);
+    $numProduccion = mysqli_num_rows($resProduccion);
     
-    $selectMaterial = "SELECT * FROM $dbname.produccionAcademica a, $dbname.pais c, $dbname.proposito p, $dbname.EstadoActual e, $dbname.institucion i WHERE cveProfesor = $cveProfesor AND ".
+    $selectMaterial = "SELECT * FROM produccionAcademica a, pais c, proposito p, EstadoActual e, institucion i WHERE cveProfesor = $cveProfesor AND ".
     "a.idPais = c.idPais AND p.idProposito = a.idProposito AND a.idEstado = e.idEstado AND a.cveInstitucion = i.cveInstitucion";
-    $resMaterial = mysql_query($selectMaterial, $link);
-    $numMaterial = mysql_num_rows($resMaterial);
+    $resMaterial = mysqli_query($link, $selectMaterial);
+    $numMaterial = mysqli_num_rows($resMaterial);
   
   //Proyectos de investigación
-    $selectProyecto = "SELECT * FROM $dbname.proyectoInvestigacion WHERE cveProfesor = $cveProfesor";
-    $resProyecto = mysql_query($selectProyecto, $link);
-    $numProyecto = mysql_num_rows($resProyecto);
+    $selectProyecto = "SELECT * FROM proyectoInvestigacion WHERE cveProfesor = $cveProfesor";
+    $resProyecto = mysqli_query($link, $selectProyecto);
+    $numProyecto = mysqli_num_rows($resProyecto);
   
   //Tutorías<-
     $selectTutoria = "SELECT t.nombreEstudiante, t.fechaInicio, t.fechaFin, t.tipo, t.terminado, p.nombrePlan, e.estudio  FROM 
-    $dbname.tutoria t, $dbname.plan p, $dbname.nivelEstudio e WHERE cveProfesor = $cveProfesor AND t.cvePlan = p.cvePlan AND e.idEstudio = t.idEstudio";
-    $resTutoria = mysql_query($selectTutoria, $link);
-    $numTutoria = mysql_num_rows($resTutoria);
+    tutoria t, plan p, nivelEstudio e WHERE cveProfesor = $cveProfesor AND t.cvePlan = p.cvePlan AND e.idEstudio = t.idEstudio";
+    $resTutoria = mysqli_query($link, $selectTutoria);
+    $numTutoria = mysqli_num_rows($resTutoria);
     
   require('fpdf.php');
   require('PDF_MC_Table.php');
@@ -166,7 +167,7 @@ date_default_timezone_set('UTC');
    $pdf->SetAligns(array('L', 'L'));
    $pdf->SetVisible(1,1); 
 
-    $array = mysql_fetch_array($resProf);
+    $array = mysqli_fetch_array($resProf);
     $pdf->SetTextColor(0,0,0);
     $pdf->Row(array("Nombre", utf8_encode($array['nombre'])));
     if($array['genero']==1)$genero="Masculino";
@@ -193,7 +194,7 @@ date_default_timezone_set('UTC');
         $pdf->SetWidths(array(80, 80));
      
          $pdf->SetTextColor(0,0,0);
-         while($array = mysql_fetch_array($resLaboral)){
+         while($array = mysqli_fetch_array($resLaboral)){
              $pdf->Row(array("Nombramiento", utf8_encode($array['nombramiento'])));
              $pdf->Row(array("Tipo de nombramiento", utf8_encode($array['tipoNombramiento'])));
              $pdf->Row(array("Dedicación", utf8_encode($array['dedicacion'])));
@@ -219,7 +220,7 @@ date_default_timezone_set('UTC');
         $pdf->SetWidths(array(80, 80));
      
          
-         while($array = mysql_fetch_array($resDireccion)){
+         while($array = mysqli_fetch_array($resDireccion)){
              $paraCurriculum = "No";
              $pdf->Row(array("Título de la tesis o proyecto individual", utf8_encode($array['titulo'])));
              $pdf->Row(array("Grado", utf8_encode($array['estudio'])));
@@ -251,7 +252,7 @@ date_default_timezone_set('UTC');
       $pdf->SetTextColor(0,0,0);
    
        
-       while($array = mysql_fetch_array($resDocencia)){
+       while($array = mysqli_fetch_array($resDocencia)){
            $pdf->Row(array("Nombre del Curso", utf8_encode($array['nombreCurso'])));
            $pdf->Row(array("Institución de Educación Superior (IES)", utf8_encode($array['nombreInst'])));
            $pdf->Row(array("Dependencia de Educación Superios (IES)", utf8_encode($array['dependencia'])));
@@ -280,7 +281,7 @@ date_default_timezone_set('UTC');
         $pdf->SetFont('Helvetica','',11);
         $pdf->SetWidths(array(80, 80));
         $pdf->SetTextColor(0,0,0);
-         while($array = mysql_fetch_array($resEstudios)){
+         while($array = mysqli_fetch_array($resEstudios)){
              $pdf->Row(array("Nivel de estudios", utf8_encode($array['estudio'])));
              $pdf->Row(array("Estudios en", utf8_encode($array['estudioEn'])));
              $pdf->Row(array("Área ---> disciplina", utf8_encode($array['area']) . " ---> " . utf8_encode($array['disciplinaEstudio'])));
@@ -316,7 +317,7 @@ date_default_timezone_set('UTC');
         $pdf->SetWidths(array(80, 80));
      $pdf->SetTextColor(0,0,0);
          
-         while($array = mysql_fetch_array($resGestion)){
+         while($array = mysqli_fetch_array($resGestion)){
              $aprobado = "No";
              $terminada ="No";
              $tipoGestion = "Colectiva";
@@ -353,7 +354,7 @@ date_default_timezone_set('UTC');
       $pdf->SetWidths(array(80, 80));
       $pdf->SetTextColor(0,0,0);
        
-       while($array = mysql_fetch_array($resLGAC)){        
+       while($array = mysqli_fetch_array($resLGAC)){        
            $pdf->Row(array("Línea", utf8_encode($array['campo'])));
            $pdf->Row(array("Actividades que realiza", utf8_encode($array['actividades'])));
            $pdf->Row(array("Horas a la semana dedicadas a esta LGAC", $array['horas']));
@@ -373,7 +374,7 @@ date_default_timezone_set('UTC');
         $pdf->SetFont('Helvetica','',11);
         $pdf->SetWidths(array(80, 80));
         $pdf->SetTextColor(0,0,0);
-         while($array = mysql_fetch_array($resPremios)){
+         while($array = mysqli_fetch_array($resPremios)){
              $pdf->Row(array("Nombre del premio", $array['nombrePremio']));
              $pdf->Row(array("Motivo", $array['motivo']));
              
@@ -398,7 +399,7 @@ date_default_timezone_set('UTC');
    $pdf->SetFont('Helvetica','',11);
    $pdf->SetWidths(array(80, 80));
     $pdf->SetTextColor(0,0,0);
-    while($array = mysql_fetch_array($resProduccion))
+    while($array = mysqli_fetch_array($resProduccion))
     {
         $paraCurriculum = "No";
         
@@ -544,7 +545,7 @@ date_default_timezone_set('UTC');
         $pdf->Write(5,"\n\n\n");
     }
     
-    while($array = mysql_fetch_array($resMaterial)){
+    while($array = mysqli_fetch_array($resMaterial)){
         $tipoProduccion = "Material de apoyo";
         $pdf->Row(array("Tipo", $tipoProduccion));
         $pdf->Row(array("Autor(es)", utf8_encode($array['autorProduccion'])));
@@ -559,7 +560,7 @@ date_default_timezone_set('UTC');
          $pdf->Write(5,"\n\n\n");
     }
     
-    while($array = mysql_fetch_array($resAsCon)){
+    while($array = mysqli_fetch_array($resAsCon)){
 
         $paraCurriculumn = "No";
         
@@ -607,7 +608,7 @@ date_default_timezone_set('UTC');
       $pdf->SetFont('Helvetica','',11);
       $pdf->SetWidths(array(80, 80));
        $pdf->SetTextColor(0,0,0);
-       while($array = mysql_fetch_array($resProyecto)){
+       while($array = mysqli_fetch_array($resProyecto)){
            $tipoPatrocinador = "Externo";
            $paraCurriculum = "No";
        
@@ -639,7 +640,7 @@ date_default_timezone_set('UTC');
       $pdf->SetFont('Helvetica','',11);
       $pdf->SetWidths(array(80, 80));
        $pdf->SetTextColor(0,0,0);
-       while($array = mysql_fetch_array($resTutoria)){
+       while($array = mysqli_fetch_array($resTutoria)){
            $terminada = "En proceso";
            $pdf->Row(array("Nombre del estudiante", utf8_encode($array['nombreEstudiante'])));
            $pdf->Row(array("Nivel", utf8_encode($array['estudio'])));
@@ -655,7 +656,7 @@ date_default_timezone_set('UTC');
   }
     
     
-    mysql_close($link);
+    mysqli_close($link);
     $pdf->Output('doc.pdf','I');
     exit;
   

@@ -30,7 +30,7 @@ if(isset($_SESSION['valida'])){
 			<option>Proyecto de investigacion</option>
 			<option value="Tutoria">Tutoría</option>
 		</select></div></div>
-		<div class="div6"><div class="div3"><label>Clave o nombre de profesor*</label></div>
+		<div class="div6"><div class="div3"><label>Nombre del profesor</label></div> <!-- QUE TENGA CLAVE -->
 
 
 		<!-- <div class="div6"><input type="text" name="" class="div12" id="cve-nom"></div></div> -->

@@ -37,9 +37,9 @@
 		$correo = $_POST['mail'];
 		$correo2 = ($_POST['mail2']!="") ? $_POST['mail2'] : 'NA';
 		$promep = ($_POST['respro']!="") ? $_POST['respro'] : '0';
-		$fecpro = ($_POST['fecp']!="") ? $_POST['fecp'] : 'NA';
+		$fecpro = ($_POST['fecp']!="") ? $_POST['fecp'] : null;
 		$sni = ($_POST['ress']!="") ? $_POST['ress'] : '0';
-		$fecsni = ($_POST['fecs']!="") ? $_POST['fecs'] : 'NA';
+		$fecsni = ($_POST['fecs']!="") ? $_POST['fecs'] : null;
 		$extension = ($_POST['extn']!="") ?	$_POST['extn'] : 'NA';
 
 		$find="(SELECT COUNT(*) as TOTAL FROM profesor WHERE cveProfesor LIKE '".$clave."')";
@@ -47,7 +47,7 @@
 		$res=$resultado->fetch_object();
 		if($res->TOTAL==0){
 			$sql = "INSERT INTO profesor (cveProfesor,nombre,genero,curp,idEdoCivil,idPais,entidadNacimiento,fechaNac,telefonoProfesor,telefonoTrabajo,email,emailAdicional,tienePromep,fechaPromep,tieneSNI,fechaSNI,ext) 
-			VALUES ($clave,'$nombre',$gene,'$curp',$civil,'$pais','$enti','$fecbi','$phone','$telo','$correo','$correo2',$promep,'$fecpro',$sni,'$fecsni',$extension)";		
+			VALUES ($clave,'$nombre',$gene,'$curp',$civil,'$pais','$enti','$fecbi','$phone','$telo','$correo','$correo2',$promep,'$fecpro',$sni,'$fecsni','$extension')";		
 			if(mysqli_query($con, $sql)){	
 				echo"OK";
 			}else{
@@ -67,8 +67,8 @@
 		$academia = ($_POST['uniac']!="") ? $_POST['uniac'] : 'NA';
 		$fechai = $_POST['fecinic'];
 		$fechaf = ($_POST['fecfinc']!="") ? $_POST['fecfinc'] : 'NA';
-		//$cronologia = ($_POST['cronos']!="") ? $_POST['cronos'] : 'ACTUAL';
-		$cronologia = $_POST['cronos'];
+		$cronologia = ($_POST['cronos']!="") ? $_POST['cronos'] : 'NA';
+		//$cronologia = $_POST['cronos'];
 
 		$find="(SELECT COUNT(*) as TOTAL FROM profesor WHERE cveProfesor LIKE '".$clave."')";
 		$resultado=mysqli_query($con,$find);

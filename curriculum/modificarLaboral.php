@@ -27,7 +27,7 @@ $parametro=$_GET['p'];
 	   		<div class="div1"></div><div class="div2"><h4>Institución</h4></div>
 	   		<div class="div3">
 	   			<select style="width: 190px;" id="inst" onblur="validar2(this.id)">
-	   			<option style="display: none;">Seleeciona la Institución</option>
+	   			<option style="display: none;">Selecciona la Institución</option>
 	   			<?php $qri = "SELECT nombreInst AS nombre, cveInstitucion AS clave FROM institucion";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>

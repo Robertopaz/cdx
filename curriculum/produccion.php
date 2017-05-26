@@ -47,7 +47,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo del artículo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){ ?>
@@ -130,7 +130,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo del artículo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -218,7 +218,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo del artículo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -312,7 +312,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Alcance/Objetivo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -372,7 +372,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo del libro</h4></div>
 	   		<div class="div12"></div> 
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -464,7 +464,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Alcance/Objetivo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -528,7 +528,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo del libro</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -610,7 +610,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv" onblur="validar2(this.id)">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -675,7 +675,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo de presentación</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -760,7 +760,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo de presentación</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -850,7 +850,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Titulo</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
-	   			<option value="0" style="display: none;">Seleeciona...</option>
+	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
@@ -922,5 +922,5 @@ $con = Conectarse();
 	   	<div class="div12"></div>
 	</div>
 	<?php include 'down.php'; }else{
-		header('location.index.php');
+		header('location:index.php');
 		}?>

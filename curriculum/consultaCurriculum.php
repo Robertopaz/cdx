@@ -84,12 +84,12 @@
 							"<tr>".
 								"<th>Fecha de nacimiento</th>".
 								"<th>Telefono</th>".
-								"<th>Telefono de oficina-Ext</th>".
+								"<th>Telefono de oficina</th>".
 							"</tr>".
 							"<tr>".
 								"<td id='fecha-nacimiento'>".$row['nacimiento']."</td>".
 								"<td id='telefono'>".$row['telefonoProfesor']."</td>".
-								"<td id='telefono-oficina'>".$row['telefonoTrabajo']."-".$row['ext']."</td>".
+								"<td id='telefono-oficina'>".$row['telefonoTrabajo']." ext.".$row['ext']."</td>".
 							"</tr>".
 							"<tr>".
 								"<th>Email</th>".

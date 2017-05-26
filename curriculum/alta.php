@@ -32,7 +32,7 @@ if(isset($_SESSION['valida'])){
 	   	<div class="div4"> <input onblur="validar2(this.id)" type="text" placeholder="Paterno Materno Nombre" id="namec" >
 	   		</div>
 	   		<div class="div4"> <select style="width: 190px;" id="sex" onblur="validar2(this.id)">
-	   			<option style="display: none;">Seleeciona...</option>
+	   			<option style="display: none;">Selecciona...</option>
 	   			<option value="1">Masculino</option>
 	   			<option value="0">Femenino</option>
 	   		</select></div>
