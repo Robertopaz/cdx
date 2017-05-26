@@ -11,7 +11,7 @@ if(isset($_SESSION['valida'])){
 
 <div id="contenido">
 	<div class="div12">
-		<div class="div4"><div class="div5"><label>Buscar</label></div><div class="div7"><select class="div12" id="parametroBusqueda">
+		<div class="div4"><div class="div3"><label>Buscar</label></div><div class="div5"><select class="div16" id="parametroBusqueda">
 			<option>Profesor</option>
 			<option>Articulos</option>
 			<option>Asesorias</option>
@@ -30,10 +30,27 @@ if(isset($_SESSION['valida'])){
 			<option>Proyecto de investigacion</option>
 			<option value="Tutoria">Tutoría</option>
 		</select></div></div>
-		<div class="div6"><div class="div6"><label>Clave o nombre de profesor*</label></div>
-		<div class="div6"><input type="text" name="" class="div12" id="cve-nom"></div></div>
+		<div class="div6"><div class="div3"><label>Clave o nombre de profesor*</label></div>
+
+
+		<!-- <div class="div6"><input type="text" name="" class="div12" id="cve-nom"></div></div> -->
+
+		<div class="div6">
+			<select id="cve-nom">
+				<option>Seleccionar Profesor</option>
+				<?php 
+					$sql="SELECT cveProfesor, nombre FROM profesor";
+					$resultado=mysqli_query($con,$sql);
+					while ($profe = mysqli_fetch_array($resultado)) {
+				?>
+				<option value="<?php echo $profe[0]; ?>"><?php echo $profe[1]; ?></option>
+				<?php } ?>
+			</select>
+		</div>
+
+
 		<div class="div2"><div class="div6">
-			<div class="div1"></div><button class="div11 oscuro" onclick="Busqueda()">Aceptar</button></div></div>
+			<div class="div1"></div><button id="btnBuscar" class="div11 oscuro" onclick="Busqueda()">Aceptar</button></div></div>
 		</div>
 		<hr>
 		<div class="div12" id="cuerpoConsulta">
@@ -45,3 +62,9 @@ if(isset($_SESSION['valida'])){
 	<?php include 'down.php'; }else{
 		header('location:index.php');
 		}?>
+
+<style type="text/css">
+	#btnBuscar{
+		width: 100px;
+	}
+</style>

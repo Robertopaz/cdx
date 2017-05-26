@@ -114,7 +114,8 @@
 
 	elseif ($flag=="Articulos") { // Esta condicional muestra en interfaz todos los articulos que esten registrados bajo la clave del maestro
 
-		$sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pais.nombrePais, date_format(fechaPublicacion, '%d-%m-%Y') as publicacion FROM produccionacademica INNER JOIN proposito ON proposito.idProposito=produccionacademica.idProposito INNER JOIN estadoactual on estadoactual.idEstado=produccionacademica.idEstado INNER JOIN pais  on produccionacademica.idPais=pais.idPais WHERE cveProfesor='".$parametro."' And cveTipoProduccion = 1;";
+		$sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pais.nombrePais, date_format(fechaPublicacion, '%d-%m-%Y') as publicacion, profesor.nombre FROM produccionacademica INNER JOIN proposito ON proposito.idProposito=produccionacademica.idProposito INNER JOIN estadoactual on estadoactual.idEstado=produccionacademica.idEstado INNER JOIN pais  on produccionacademica.idPais=pais.idPais INNER JOIN profesor on produccionacademica.cveProfesor=profesor.cveProfesor WHERE produccionacademica.cveProfesor='".$parametro."' And cveTipoProduccion = 1;";
+		
 		$resultado=mysqli_query($con,$sql);
 
 		echo "<h2>Articulos</h2>";
@@ -438,7 +439,7 @@
 
 	elseif ($flag=="Direccion-individualizada") {//Esta condicional muestra en interfaz todas las direcciones individualizadas 
 
-		$sql="SELECT direccionindividualizada.*, institucion.nombreInst, nivelestudio.estudio, estadoactual.Estado, date_format(fechaInicio, '%d-%m-%Y') as inicio, date_format(fechaFin, '%d-%m-%Y') as fin FROM direccionindividualizada INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado WHERE cveProfesor='".$parametro."' ;";
+		echo $sql="SELECT direccionindividualizada.*, institucion.nombreInst, nivelestudio.estudio, estadoactual.Estado, date_format(fechaInicio, '%d-%m-%Y') as inicio, date_format(fechaFin, '%d-%m-%Y') as fin FROM direccionindividualizada INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado WHERE cveProfesor='".$parametro."' ;";
 		$resultado=mysqli_query($con,$sql);
 		$rowCount=mysqli_num_rows($resultado);
 		echo "<h2>Dirección Individualizada</h2>";
@@ -446,39 +447,74 @@
 			echo "<h3>".$rowCount." resultados encontrados</h3>";
 		}
 		while ($row = mysqli_fetch_array($resultado)) {
-			
-		echo "<div class='div12'>
-				<table class='div12'>
-					<tbody>
-						<tr>
-							<th>Titulo</th>
-							<th>Grado</th>
-							<th>Institución</th>
-						</tr>
-						<tr>
-							<td>".$row['titulo']."</td>
-							<td>".$row['estudio']."</td>
-							<td>".$row['nombreInst']."</td>
-						</tr>
-						<tr>
-							<th>Fecha de inicio</th>
-							<th>Fecha de Fin</th>
-							<th>Numero de alumnos</th>
-						</tr>
-						<tr>
-							<td>".$row['inicio']."</td>
-							<td>".$row['fin']."</td>
-							<td>".$row['numAlumnos']."</td>
-						</tr>
-						<tr>
-							<th colspan='3'>Estado</th>
-						</tr>
-						<tr>
-							<td colspan='3'>".$row['Estado']."</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>  <div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveDireccionInd'].")'>Eliminar</button><button class='div3 azul' onclick='modificarDireccionIndividualizada(".$row['cveDireccionInd'].")'>Modificar</button></div>";
+
+			if ($row['cveInstitucion'] == 134) {
+				echo "<div class='div12'>
+					<table class='div12'>
+						<tbody>
+							<tr>
+								<th>Titulo</th>
+								<th>Grado</th>
+								<th>Institución</th>
+							</tr>
+							<tr>
+								<td>".$row['titulo']."</td>
+								<td>".$row['estudio']."</td>
+								<td>".$row['nombInstitucion']."</td>
+							</tr>
+							<tr>
+								<th>Fecha de inicio</th>
+								<th>Fecha de Fin</th>
+								<th>Numero de alumnos</th>
+							</tr>
+							<tr>
+								<td>".$row['inicio']."</td>
+								<td>".$row['fin']."</td>
+								<td>".$row['numAlumnos']."</td>
+							</tr>
+							<tr>
+								<th colspan='3'>Estado</th>
+							</tr>
+							<tr>
+								<td colspan='3'>".$row['Estado']."</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>  <div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveDireccionInd'].")'>Eliminar</button><button class='div3 azul' onclick='modificarDireccionIndividualizada(".$row['cveDireccionInd'].")'>Modificar</button></div>";
+			}else{
+				echo "<div class='div12'>
+					<table class='div12'>
+						<tbody>
+							<tr>
+								<th>Titulo</th>
+								<th>Grado</th>
+								<th>Institución</th>
+							</tr>
+							<tr>
+								<td>".$row['titulo']."</td>
+								<td>".$row['estudio']."</td>
+								<td>".$row['nombreInst']."</td>
+							</tr>
+							<tr>
+								<th>Fecha de inicio</th>
+								<th>Fecha de Fin</th>
+								<th>Numero de alumnos</th>
+							</tr>
+							<tr>
+								<td>".$row['inicio']."</td>
+								<td>".$row['fin']."</td>
+								<td>".$row['numAlumnos']."</td>
+							</tr>
+							<tr>
+								<th colspan='3'>Estado</th>
+							</tr>
+							<tr>
+								<td colspan='3'>".$row['Estado']."</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>  <div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveDireccionInd'].")'>Eliminar</button><button class='div3 azul' onclick='modificarDireccionIndividualizada(".$row['cveDireccionInd'].")'>Modificar</button></div>";
+			}		
 		}
 	}
 
@@ -546,45 +582,89 @@
 			echo "<h3>".$rowCount." 		resultados encontrados</h3>";
 		}
 		while ($row = mysqli_fetch_array($resultado)) {
-		echo "<hr>".
-		
-		"<div class='div12'>".
-			"<table class='div12'>".
-					"<tbody>".
-						"<tr>".
-							"<th>Nivel</th>".
-							"<th>Estudios</th>".
-							"<th>Area</th>".
-						"</tr>".
-						"<tr>".
-							"<td id='Nivel-estudios'>".$row['estudio']."</td>".
-							"<td id='Estudios-estudios'>".$row['estudioEn']."</td>".
-							"<td id='Area-estudios'>".$row['area']."</td>".
-						"</tr>".
-						"<tr>".
-							"<th>Diciplina</th>".
-							"<th>Pais</th>".
-							"<th>Institución Otorgante</th>".
-						"</tr>".
-						"<tr>".
-							"<td id='Diciplina-estudios'>".$row['disciplinaEstudio']."</td>".
-							"<td id='Pais-estudios'>".$row['nombrePais']."</td>".
-							"<td id='Institucion-estudios'>".$row['nombreInst']."</td>".
-						"</tr>".
-						"<tr>".
-							"<th>Fecha de inicio</th>".
-							"<th>Fecha de Fin</th>".
-							"<th>Fecha de obtencion del Titulo o Grado</th>".
-						"</tr>".
-						"<tr>".
-							"<td id='Fecha-inicio-estudios'>".$row['inicio']."</td>".
-							"<td id='Fecha-fin-estudios'>".$row['fin']."</td>".
-							"<td id='Fecha-obtencion-estudios'>".$row['obtencion']."</td>".
-						"</tr>".
-					"</tbody>".
-			"</table>".	
-		"</div>
-		<div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveEstudio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarEstudios(".$row['cveEstudio'].")'>Modificar</button></div>";		
+
+			if ($row['cveInstitucion'] == 134) {
+				echo "<hr>".
+			
+				"<div class='div12'>".
+					"<table class='div12'>".
+							"<tbody>".
+								"<tr>".
+									"<th>Nivel</th>".
+									"<th>Estudios</th>".
+									"<th>Area</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Nivel-estudios'>".$row['estudio']."</td>".
+									"<td id='Estudios-estudios'>".$row['estudioEn']."</td>".
+									"<td id='Area-estudios'>".$row['area']."</td>".
+								"</tr>".
+								"<tr>".
+									"<th>Diciplina</th>".
+									"<th>Pais</th>".
+									"<th>Institución Otorgante</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Diciplina-estudios'>".$row['disciplinaEstudio']."</td>".
+									"<td id='Pais-estudios'>".$row['nombrePais']."</td>".
+									"<td id='Institucion-estudios'>".$row['institucionNoCatalogo']."</td>".
+								"</tr>".
+								"<tr>".
+									"<th>Fecha de inicio</th>".
+									"<th>Fecha de Fin</th>".
+									"<th>Fecha de obtencion del Titulo o Grado</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Fecha-inicio-estudios'>".$row['inicio']."</td>".
+									"<td id='Fecha-fin-estudios'>".$row['fin']."</td>".
+									"<td id='Fecha-obtencion-estudios'>".$row['obtencion']."</td>".
+								"</tr>".
+							"</tbody>".
+					"</table>".	
+				"</div>
+				<div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveEstudio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarEstudios(".$row['cveEstudio'].")'>Modificar</button></div>";	
+			}else{
+				echo "<hr>".
+			
+				"<div class='div12'>".
+					"<table class='div12'>".
+							"<tbody>".
+								"<tr>".
+									"<th>Nivel</th>".
+									"<th>Estudios</th>".
+									"<th>Area</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Nivel-estudios'>".$row['estudio']."</td>".
+									"<td id='Estudios-estudios'>".$row['estudioEn']."</td>".
+									"<td id='Area-estudios'>".$row['area']."</td>".
+								"</tr>".
+								"<tr>".
+									"<th>Diciplina</th>".
+									"<th>Pais</th>".
+									"<th>Institución Otorgante</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Diciplina-estudios'>".$row['disciplinaEstudio']."</td>".
+									"<td id='Pais-estudios'>".$row['nombrePais']."</td>".
+									"<td id='Institucion-estudios'>".$row['nombreInst']."</td>".
+								"</tr>".
+								"<tr>".
+									"<th>Fecha de inicio</th>".
+									"<th>Fecha de Fin</th>".
+									"<th>Fecha de obtencion del Titulo o Grado</th>".
+								"</tr>".
+								"<tr>".
+									"<td id='Fecha-inicio-estudios'>".$row['inicio']."</td>".
+									"<td id='Fecha-fin-estudios'>".$row['fin']."</td>".
+									"<td id='Fecha-obtencion-estudios'>".$row['obtencion']."</td>".
+								"</tr>".
+							"</tbody>".
+					"</table>".	
+				"</div>
+				<div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cveEstudio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarEstudios(".$row['cveEstudio'].")'>Modificar</button></div>";
+			}
+				
 		}
 	}
 
@@ -1052,29 +1132,55 @@
 			echo "<h3>".$rowCount." 		resultados encontrados</h3>";
 		}
 		while ($row = mysqli_fetch_array($resultado)) {
+
+			if ($row['cveInstitucion'] == 134) {
+				echo "<div class='div12'>
+					<table class='div12'>
+						<tbody>
+							<tr>
+								<th>Institución Otorgante</th>
+								<th>Nombre</th>
+								<th>Motivo</th>
+							</tr>
+							<tr>
+								<td>".$row['otraInstitucionOtorgante']."</td>
+								<td>".$row['nombrePremio']."</td>
+								<td>".$row['motivo']."</td>
+							</tr>
+							<tr class>
+								<th colspan='3'>Fecha de obtencion</th>
+							</tr>
+							<tr>
+								<td>".$row['obtencion']."</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><hr><div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cvePremio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarPremio(".$row['cvePremio'].")'>Modificar</button></div>";
+			}else{
+				echo "<div class='div12'>
+					<table class='div12'>
+						<tbody>
+							<tr>
+								<th>Institución Otorgante</th>
+								<th>Nombre</th>
+								<th>Motivo</th>
+							</tr>
+							<tr>
+								<td>".$row['nombreInst']."</td>
+								<td>".$row['nombrePremio']."</td>
+								<td>".$row['motivo']."</td>
+							</tr>
+							<tr class>
+								<th colspan='3'>Fecha de obtencion</th>
+							</tr>
+							<tr>
+								<td>".$row['obtencion']."</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><hr><div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cvePremio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarPremio(".$row['cvePremio'].")'>Modificar</button></div>";
+			}			
 			
-			echo "<div class='div12'>
-				<table class='div12'>
-					<tbody>
-						<tr>
-							<th>Institución Otorgante</th>
-							<th>Nombre</th>
-							<th>Motivo</th>
-						</tr>
-						<tr>
-							<td>".$row['nombreInst']."</td>
-							<td>".$row['nombrePremio']."</td>
-							<td>".$row['motivo']."</td>
-						</tr>
-						<tr class>
-							<th colspan='3'>Fecha de obtencion</th>
-						</tr>
-						<tr>
-							<td>".$row['obtencion']."</td>
-						</tr>
-					</tbody>
-				</table>
-			</div><hr><div class='div12'><div class='div6'></div><button class='div3 rojo' onclick='eliminar(".$row['cvePremio'].")'>Eliminar</button><button class='div3 azul' onclick='modificarPremio(".$row['cvePremio'].")'>Modificar</button></div>";
 		}
 		
 	}
