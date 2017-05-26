@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2017 a las 00:47:53
+-- Tiempo de generación: 26-05-2017 a las 19:30:53
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.6
 
@@ -68,8 +68,8 @@ CREATE TABLE `asesoriaconsultoria` (
 --
 
 INSERT INTO `asesoriaconsultoria` (`cveAsesoriaConsultoria`, `cveProfesor`, `cveTipoProduccion`, `idPais`, `nombreProyecto`, `objetivoProyecto`, `empresaBeneficiaria`, `fechaInicio`, `considerarCurriculum`, `otrosInvestigadores`, `beneficioEconomicoInst`, `idEstado`) VALUES
-(1, 13259, 4, 146, 'nombre de prueba1', 'alcance prueba 1', 'NINGUNA', '2017-05-23', 1, 'NINGUNA', NULL, 4),
-(2, 13259, 6, 146, 'PRUEBA ', 'ALCENCE PRUEBA', 'EMPRESA PRUEBA', '2017-05-23', 1, 'NINGUNA', 'NINGUNA', 3);
+(1, 13259, 4, 146, 'nombre de prueba1', 'alcance prueba 2', 'NINGUNA2', '2017-05-24', 1, 'NINGUNA1', NULL, 4),
+(2, 13259, 6, 146, 'PRUEBA ', 'ALCENCE PRUEBA2', 'EMPRESA PRUEBA2', '2017-05-24', 1, 'NINGUNA19.09', 'NINGUNA2', 3);
 
 -- --------------------------------------------------------
 
@@ -642,7 +642,7 @@ CREATE TABLE `datoslaborales` (
 --
 
 INSERT INTO `datoslaborales` (`cveDatosLaborales`, `cveInstitucion`, `cveProfesor`, `nombramiento`, `tipoNombramiento`, `dedicacion`, `dependencia`, `unidadAcademica`, `inicioContrato`, `finContrato`, `cronologia`) VALUES
-(2, 14, 13259, 'tipo', 'Nombramiento', 'dedicacion', 'dependencia', 'unidad', '2017-05-17', '2017-06-18', 'segunda');
+(2, 14, 13259, 'tipo2', 'Nombramiento', 'dedicacion22', 'dependencia', 'unidad', '2017-05-17', '2017-05-24', 'segunda 1911');
 
 -- --------------------------------------------------------
 
@@ -656,6 +656,7 @@ CREATE TABLE `direccionindividualizada` (
   `idEstado` int(11) NOT NULL,
   `cveProfesor` int(11) NOT NULL,
   `cveInstitucion` int(11) NOT NULL,
+  `nombInstitucion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `titulo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fechaInicio` date DEFAULT NULL,
   `fechaFin` date DEFAULT NULL,
@@ -667,8 +668,8 @@ CREATE TABLE `direccionindividualizada` (
 -- Volcado de datos para la tabla `direccionindividualizada`
 --
 
-INSERT INTO `direccionindividualizada` (`cveDireccionInd`, `idEstudio`, `idEstado`, `cveProfesor`, `cveInstitucion`, `titulo`, `fechaInicio`, `fechaFin`, `numAlumnos`, `paraCurriculum`) VALUES
-(1, 1, 1, 13259, 134, 'titulo de tesis', '2013-02-15', '2017-05-09', 5, NULL);
+INSERT INTO `direccionindividualizada` (`cveDireccionInd`, `idEstudio`, `idEstado`, `cveProfesor`, `cveInstitucion`, `nombInstitucion`, `titulo`, `fechaInicio`, `fechaFin`, `numAlumnos`, `paraCurriculum`) VALUES
+(1, 1, 1, 13259, 134, '', 'titulo de tesis', '2013-02-15', '2017-05-09', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -695,7 +696,7 @@ CREATE TABLE `docencia` (
 --
 
 INSERT INTO `docencia` (`cveDocencia`, `cveCurso`, `cveInstitucion`, `cveProfesor`, `idEstudio`, `dependencia`, `fechaInicio`, `numAlumnos`, `duracionSemanas`, `horasAsesoriaMes`, `horasSemana`) VALUES
-(3, 73, 131, 13259, 2, '9', '2030-12-15', 23, 23, 23, 23),
+(3, 4, 131, 13259, 2, '9', '2030-12-15', 28, 23, 1357, 24),
 (4, 523, 1, 13259, 1, '17', '2017-05-15', 8, 7, 6, 5);
 
 -- --------------------------------------------------------
@@ -817,7 +818,7 @@ CREATE TABLE `estudio` (
 --
 
 INSERT INTO `estudio` (`cveEstudio`, `cveProfesor`, `cveInstitucion`, `idPais`, `estudioEn`, `disciplinaEstudio`, `institucionNoCatalogo`, `fechaInicio`, `fechaFin`, `fechaObtencion`, `idEstudio`, `idArea`) VALUES
-(2, 13259, 134, 146, 'estudios en', 'Disciplina', 'otra prueba de inst', '2015-02-15', '2019-02-15', '2020-03-15', 1, 2),
+(2, 13259, 134, 146, 'estudios en 2', 'Disciplina 2', 'otra prueba de inst', '2015-02-25', '2017-02-15', '2020-05-25', 1, 2),
 (4, 13259, 16, 146, 'HOY 22 0 23', 'HOY 22 O 23', '', '2001-01-01', '2002-01-01', '2003-01-01', 2, 3);
 
 -- --------------------------------------------------------
@@ -847,7 +848,7 @@ CREATE TABLE `gestionacademica` (
 --
 
 INSERT INTO `gestionacademica` (`cveGestionAcademica`, `cveProfesor`, `tipoIndividual`, `cargo`, `funcion`, `organoColegiado`, `aprobado`, `resultados`, `terminada`, `fechaInicioGestion`, `fechaTerminoGestion`, `fechaUltimoInforme`, `horasSemana`) VALUES
-(3, 13259, 1, 'Cargo', 'Funcion', 'Organo', 0, 'resultado2', 1, '2016-02-15', '2017-02-15', '2017-01-15', 5),
+(3, 13259, 1, 'Cargo 2', 'Funcion 2', 'Organo 2', 1, 'resultado2', 0, '2017-05-05', '2017-05-01', '2017-05-25', 1146),
 (4, 13259, 0, 'corginador', 'funciom', 'organo', 0, 'resultado', 0, '2017-05-17', '2017-05-18', '2017-05-19', 5);
 
 -- --------------------------------------------------------
@@ -1020,7 +1021,7 @@ CREATE TABLE `lgac` (
 --
 
 INSERT INTO `lgac` (`cveGAC`, `cveProfesor`, `campo`, `actividades`, `horas`) VALUES
-(1, 13259, 'Campo', 'Actividades', 1);
+(1, 13259, 'Campo 2', 'Actividades2', 1147);
 
 -- --------------------------------------------------------
 
@@ -1351,9 +1352,8 @@ CREATE TABLE `premio` (
 --
 
 INSERT INTO `premio` (`cvePremio`, `cveProfesor`, `cveInstitucion`, `nombrePremio`, `motivo`, `fechaObtencion`, `otraInstitucionOtorgante`) VALUES
-(11, 13259, 1, 'Premio', 'Motivo de premio', '2017-04-15', 'null'),
-(12, 13259, 134, ' nombre dos', 'por otra institucion', '2016-05-15', 'Institucion de prueba'),
-(13, 13259, 134, 'premios22', 'NO LO SE', '2011-02-15', 'la cueva de splinter');
+(11, 13259, 19, 'Premio', 'Motivo de premio', '2017-04-15', 'null'),
+(12, 13259, 134, ' nombre dos', 'por otra institucion', '2016-05-15', 'Institucion de prueba');
 
 -- --------------------------------------------------------
 
@@ -1368,6 +1368,7 @@ CREATE TABLE `produccionacademica` (
   `cveProfesor` int(11) NOT NULL,
   `cveTipoProduccion` int(11) NOT NULL,
   `cveInstitucion` int(11) DEFAULT NULL,
+  `nombInstitucion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `autorProduccion` varchar(140) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tituloProduccion` varchar(140) COLLATE utf8_spanish_ci DEFAULT NULL,
   `paraCurriculum` tinyint(1) DEFAULT NULL,
@@ -1402,15 +1403,18 @@ CREATE TABLE `produccionacademica` (
 -- Volcado de datos para la tabla `produccionacademica`
 --
 
-INSERT INTO `produccionacademica` (`cveProduccionAcademica`, `idProposito`, `idPais`, `cveProfesor`, `cveTipoProduccion`, `cveInstitucion`, `autorProduccion`, `tituloProduccion`, `paraCurriculum`, `fechaPublicacion`, `nombreRevistaArticulo`, `editorialProduccion`, `volumenProduccion`, `ISSN`, `paginaInicio`, `paginaFin`, `descripcionProduccion`, `urlArticulo`, `indiceRegistroRevista`, `edicionProduccion`, `tiraje`, `ISBN`, `tituloCapitulo`, `tipoParticipacion`, `numeroPaginas`, `nombreCongreso`, `estadoProduccion`, `ciudadProduccion`, `archivoPDF`, `clasifPatente`, `usoPatente`, `numeroRegistroPatente`, `usuarioPatente`, `idEstado`) VALUES
-(1, 5, 146, 13259, 1, NULL, 'AUTOR DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', 'PRUEBA1', 'PRUEBA DEL 23', 1, 'PRUEBA23', 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
-(2, 2, 146, 13259, 2, NULL, 'PRUEBA 2', 'DE PRUEBA 2', 1, '2017-05-23', 'PRUEBA', 'de prueba', 2, 'PRUEBA13.23', 2, 3, 'ES PRUEBA 2', 'ES UNA PRUEBA ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
-(3, 4, 146, 13259, 3, NULL, 'PRUEBA 3', 'PRUEBA 3', 1, '2017-05-23', 'PRUEBA 3', 'PRUEBA 23', 2, 'PRUEBA13.37', 8, 10, 'ES UNA PRUEBA 3', 'ES UNA PRUEBA', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
-(4, 2, 146, 13259, 5, NULL, 'AUTOR DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, 'PRUEBA 23', NULL, NULL, 5, 6, NULL, NULL, NULL, 'EDICION23', 'EL 23', 'PRUEBA 14.39', 'PRUEBA 14.39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
-(6, 5, 13, 13259, 8, 134, 'AUTOR DE PRUEBA', 'HORA 14.46', 1, '2017-05-23', NULL, NULL, NULL, NULL, NULL, NULL, 'DESCRIPCION DE PRUEBA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 3, 146, 13259, 7, NULL, 'NOMBRE DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, NULL, NULL, NULL, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ES PRUEBA', 'Durango', 'DURANGO', NULL, NULL, NULL, NULL, NULL, 2),
-(8, 3, 146, 13259, 7, NULL, 'NOMBRE DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, NULL, NULL, NULL, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ES PRUEBA', 'Durango', 'DURANGO', NULL, NULL, NULL, NULL, NULL, 2),
-(9, 2, 146, 13259, 11, NULL, 'AUTOR PRUEBA', 'TITULO PRUEBA', 1, '2017-05-23', NULL, NULL, NULL, NULL, NULL, NULL, 'DESCRIP PRUEBA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NO SE', 'PRUEBA USO', '5APRUEBA', 'PRUEBA', 3);
+INSERT INTO `produccionacademica` (`cveProduccionAcademica`, `idProposito`, `idPais`, `cveProfesor`, `cveTipoProduccion`, `cveInstitucion`, `nombInstitucion`, `autorProduccion`, `tituloProduccion`, `paraCurriculum`, `fechaPublicacion`, `nombreRevistaArticulo`, `editorialProduccion`, `volumenProduccion`, `ISSN`, `paginaInicio`, `paginaFin`, `descripcionProduccion`, `urlArticulo`, `indiceRegistroRevista`, `edicionProduccion`, `tiraje`, `ISBN`, `tituloCapitulo`, `tipoParticipacion`, `numeroPaginas`, `nombreCongreso`, `estadoProduccion`, `ciudadProduccion`, `archivoPDF`, `clasifPatente`, `usoPatente`, `numeroRegistroPatente`, `usuarioPatente`, `idEstado`) VALUES
+(1, 5, 146, 13259, 1, NULL, '', 'AUTOR DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', 'PRUEBA1', 'PRUEBA DEL 23', 1, 'PRUEBA23', 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(2, 2, 146, 13259, 2, NULL, '', 'PRUEBA 2', 'DE PRUEBA 2', 1, '2017-05-24', 'PRUEBA', 'de', 2, 'PRUEBA18.59', 2, 3, 'ES PRUEBA 2', 'ES PRUEBA 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(3, 4, 146, 13259, 3, NULL, '', 'PRUEBA 3', 'PRUEBA 3', 1, '2017-05-23', 'PRUEBA', 'PRUEBA', 2, 'PRUEBA19.01', 8, 10, 'ES UNA PRUEBA 3', 'ES UNA PRUEBA', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(4, 2, 146, 13259, 5, NULL, '', 'AUTOR DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, 'PRUEBA 23', NULL, NULL, 5, 6, NULL, NULL, NULL, 'EDICION23', 'EL 23', 'PRUEBA 14.39', 'PRUEBA 14.39', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(6, 2, 102, 13259, 8, 119, '', 'AUTOR DE PRUEBA 2', 'HORA 12.05', 1, '2017-05-25', NULL, NULL, NULL, NULL, NULL, NULL, 'DESCRIPCION DE PRUEBA 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 7, 146, 13259, 7, NULL, '', 'NOMBRE DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, 'prueba 2', NULL, NULL, 4, 5, NULL, NULL, NULL, 'prueba2', 'la segunda', '222 de 25.5', NULL, 'prueba 2', 1, 'ES PRUEBA', 'Durango', 'DURANGO', NULL, NULL, NULL, NULL, NULL, 2),
+(8, 3, 146, 13259, 7, NULL, '', 'NOMBRE DE PRUEBA', 'TITULO DE PRUEBA', 1, '2017-05-23', NULL, NULL, NULL, NULL, 4, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ES PRUEBA', 'Durango', 'DURANGO', NULL, NULL, NULL, NULL, NULL, 2),
+(9, 5, 146, 13259, 11, NULL, '', 'AUTOR PRUEBA 2', 'TITULO PRUEBA 2', 1, '2017-05-25', NULL, NULL, NULL, NULL, NULL, NULL, 'DESCRIP PRUEBA 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NO 2', 'PRUEBA USO 2', '2dA PRUEBA', 'PRUEBA 2', 4),
+(10, 3, 146, 123456, 10, NULL, '', 'AUTOR DE PRUEBA', 'PRUEBA', 1, '2017-05-25', NULL, NULL, NULL, NULL, 6, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CONGRESO PRUEBA', 'México', 'TLANEPANTAL', NULL, NULL, NULL, NULL, NULL, 1),
+(11, 3, 146, 13259, 10, NULL, '', 'AUTOR DE PRUEBA', 'PRUEBA', 1, '2017-05-25', NULL, NULL, NULL, NULL, 6, 9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'CONGRESO PRUEBA', 'México', 'TLANEPANTAL', NULL, NULL, NULL, NULL, NULL, 1),
+(12, 4, 146, 13259, 9, NULL, '', 'PRUEBA', 'PRUEBA', 1, '2017-05-25', NULL, NULL, NULL, NULL, 27, 38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PRUEBA', 'Baja California Sur', 'AGUASCALIENTE ', NULL, NULL, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -1443,7 +1447,8 @@ CREATE TABLE `profesor` (
 --
 
 INSERT INTO `profesor` (`cveProfesor`, `nombre`, `genero`, `curp`, `entidadNacimiento`, `fechaNac`, `telefonoProfesor`, `telefonoTrabajo`, `email`, `emailAdicional`, `tienePromep`, `fechaPromep`, `tieneSNI`, `fechaSNI`, `idPais`, `idEdoCivil`, `ext`) VALUES
-(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, 5914);
+(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, 5914),
+(123456, 'Olvera De Jesus Josue', 1, 'OEJJ921115HQTLSS05', 'Querétaro', '1992-12-15', '123456789410', '12345678', 'jdej271@gmail.com', 'josue.olvera@uaq.com.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, 4561);
 
 -- --------------------------------------------------------
 
@@ -1496,12 +1501,9 @@ CREATE TABLE `proyectoinvestigacion` (
 --
 
 INSERT INTO `proyectoinvestigacion` (`cveProyectoInvestigacion`, `cveProfesor`, `titulo`, `nombrePatrocinador`, `fechaInicioProyecto`, `fechaFinProyecto`, `patrocinadorInterno`, `investigadores`, `alumnos`, `actividades`, `consideracionCurriculum`, `miembros`, `LGACs`) VALUES
-(2, 13259, 'Titulo', 'Patrocinador', '2016-12-15', '2017-05-09', 0, 'Investigadores', 'Alumnos', 'Actividades', NULL, 0, 0),
-(3, 13259, 'aaa', 'ddddd', '2017-01-01', '2017-05-17', 1, 'aaaaa', 'aaaa', 'aaa', NULL, 1, 2),
+(2, 13259, ' Titulo 2', 'Patrocinador', '2016-12-15', '2017-05-25', 1, 'Investigadores 2', 'Alumnos', 'Actividades 2', NULL, 100, 500),
 (4, 13259, 'Prueba', 'Prueba', '2017-05-15', '2017-05-02', 1, 'PRUEBAS', 'PRUEBAS', 'PRUEBAS', NULL, 111, 111),
-(5, 13259, 'PRUEBA2', 'PRUEBA2', '2017-05-15', '2017-05-18', 1, 'PRUEBA', 'PRUEBA1', 'PRUEBA', NULL, 5, 5),
-(6, 13259, 'PRUEBAS3', 'PRUEBAS3', '2017-05-17', '2017-05-18', 1, 'PRUEBAS3', 'PRUEBAS3', 'PRUEBAS3', NULL, 10, 10),
-(7, 13259, 'HOY 22', 'hoy 22', '2016-04-22', '2017-05-23', 1, 'PRUEBA 22', 'ALUMNOS 22', 'DE LAS 22', NULL, 6, 8);
+(5, 13259, 'PRUEBA2', 'PRUEBA2', '2017-05-15', '2017-05-18', 1, 'PRUEBA', 'PRUEBA1', 'PRUEBA', NULL, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -1554,7 +1556,7 @@ CREATE TABLE `tutoria` (
 --
 
 INSERT INTO `tutoria` (`cveTutoria`, `cveProfesor`, `cvePlan`, `nombreEstudiante`, `fechaInicio`, `fechaFin`, `tipo`, `terminado`, `idEstudio`) VALUES
-(1, 13259, 'SOF11', 'Josue Olvera', '2014-05-05', '2017-06-30', 'Tipo de tutoria', 0, 1);
+(1, 13259, 'POS', 'Josue Olvera De Jesus', '2014-05-05', '2017-05-25', 'Tipo 2', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -1838,12 +1840,12 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `premio`
 --
 ALTER TABLE `premio`
-  MODIFY `cvePremio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `cvePremio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `produccionacademica`
 --
 ALTER TABLE `produccionacademica`
-  MODIFY `cveProduccionAcademica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cveProduccionAcademica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `proposito`
 --
@@ -1853,7 +1855,7 @@ ALTER TABLE `proposito`
 -- AUTO_INCREMENT de la tabla `proyectoinvestigacion`
 --
 ALTER TABLE `proyectoinvestigacion`
-  MODIFY `cveProyectoInvestigacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cveProyectoInvestigacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `tipoproduccion`
 --
