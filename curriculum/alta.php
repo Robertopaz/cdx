@@ -5,10 +5,10 @@ if(isset($_GET['s'])&&($_GET['s']==1)){
 	session_destroy();
 }
 if(isset($_SESSION['valida'])){
-$registro = "actual";
-include 'up.php';
-include 'conex.php';
-$con = Conectarse();
+	$registro = "actual";
+	include 'up.php';
+	include 'conex.php';
+	$con = Conectarse();
 ?>
 <script src="js/funciones.js"> </script>
 <div id="bg-negro" onclick="cerrar()"></div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php?> <!-- VARIABLES DE SESION -->
+<!-- VARIABLES DE SESION -->
 <html>
 <head>
 		<title>Portal Informática</title>
