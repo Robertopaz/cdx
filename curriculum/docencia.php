@@ -36,7 +36,7 @@ $con = Conectarse();
 					<?php } ?>
 	   		</select></div>		
 	   		<div class="div4"><select style="width: 190px;" id="curs" >
-	   			<?php $qri = "SELECT cvePlan AS plan, nombreCurso AS nombre, cveCurso AS clave FROM curso ORDER BY nombre ASC";
+	   			<?php $qri = "SELECT cvePlan AS plan, nombreCurso AS nombre, cveCurso AS clave FROM curso ORDER BY nombre, plan ASC";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
 						<option value="0" style="display: none;">Selecciona...</option>

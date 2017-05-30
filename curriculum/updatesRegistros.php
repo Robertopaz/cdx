@@ -305,7 +305,7 @@ include 'conex.php';
 	}
 	if ($flag=="docencia") {
 		$clave = $_POST['clave'];
-		$plan = $_POST['programa'];
+		/*$plan = $_POST['programa'];*/
 		$nivel = $_POST['nestudio'];
 		$institu = $_POST['dependencia'];
 		$curso = $_POST['nombrec'];

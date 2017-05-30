@@ -554,7 +554,7 @@
 						</tr>
 						<tr>							
 							<th>Duración de semanas</th>
-							<th>Horas de asesoria al mes</th>
+							<th colspan='2'>Horas de asesoria al mes</th>
 						</tr>
 						<tr>							
 							<td>".$row['duracionSemanas']."</td>
@@ -1194,6 +1194,12 @@
 			echo "<h3>".$rowCount." 		resultados encontrados</h3>";
 		}
 		while ($row = mysqli_fetch_array($resultado)) {
+			if ($row['patrocinadorInterno']==0) {
+				$row['patrocinadorInterno']="No";
+			}
+			else{
+				$row['patrocinadorInterno']="Sí";
+			}
 		echo "
 			<div class='div12'>
 				<table class='div12'>
