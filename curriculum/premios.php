@@ -42,6 +42,7 @@ $con = Conectarse();
 
 	   		<div class="div4"><h4>Fecha de Obtención</h4></div>
 	   		<div class="div4"><h4>Institución Otorgante</h4></div>
+	   		<div class="div4" id="nuevaT" style="display: none"><h4>Nombre de la Institución</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecob"></div>
 	   		<div class="div4">
@@ -53,6 +54,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
 				</select></div>
+			
 			<div class="div4"> <input type="text" id="nueva" placeholder="Escribe el nombre la institución" style="display: none"></div>	   		
 
 	   		<div class="div12"></div>
@@ -70,10 +72,10 @@ $con = Conectarse();
 	<script>
 		function habilitar(){
 			if (document.getElementById('insot').value == 134) {
-				// document.getElementById('nueva').disabled = false;
+				document.getElementById('nuevaT').style.display = 'block';
 				document.getElementById('nueva').style.display = 'block';
 			}else{
-				// document.getElementById('nueva').disabled = true;
+				document.getElementById('nuevaT').style.display = 'none';
 				document.getElementById('nueva').style.display = 'none';
 			}
 		}

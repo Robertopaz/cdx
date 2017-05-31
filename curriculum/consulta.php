@@ -43,7 +43,7 @@ if(isset($_SESSION['valida'])){
 					$resultado=mysqli_query($con,$sql);
 					while ($profe = mysqli_fetch_array($resultado)) {
 				?>
-				<option value="<?php echo $profe[0]; ?>"><?php echo $profe[1]; ?></option>
+				<option value="<?php echo $profe[0]; ?>"><?php echo $profe[0]." - ".$profe[1]; ?></option>
 				<?php } ?>
 			</select>
 		</div>
