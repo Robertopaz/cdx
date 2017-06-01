@@ -64,8 +64,8 @@ $con = Conectarse();
 	   		<div class="div6"><h4>Miembros</h4></div>
 	   		<div class="div6"><h4>Lineas de generación o<br>aplicación innovadora del conocimiento</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"> <input style="width: 350px;" type="number" id="mien"></div>
-	   		<div class="div6"> <input style="width: 350px;" type="number" id="lgaic"></div>
+	   		<div class="div6"> <input onkeypress="return valida(event)" type="text" id="mien"></div>
+	   		<div class="div6"> <input onkeypress="return valida(event)" type="text" id="lgaic"></div>
 
 	   		
 	   		<div class="div12"></div>

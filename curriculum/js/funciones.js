@@ -2,6 +2,13 @@ function recargar(){
 	location.reload();
 }
 
+function valida(e){
+	tecla = (document.all) ? e.keyCode : e.which;
+	patron = /[0-9]/;
+	tecla_final=String.fromCharCode(tecla);
+	return patron.test(tecla_final);
+}
+
 function verModal(tipo, texto, textoBtn, parrafo) {
 	bgNegro = document.getElementById('bg-negro');
 	modal = document.getElementById('modal');
@@ -229,7 +236,7 @@ function alta(form){
 		if (nombre!=""){ //nombre del profesor
 			if (clav!=""){ //curp del profesor
 				if (fecbi!=""){ //fecha de nacimiento
-					if (enti!="0") { //entidad de nacimiento
+					if (enti!="") { //entidad de nacimiento
 						if (phone!="") { //telefono principal
 							if (gene!="2"){ //genero del profesor
 								if (mai!="") { //correo del profesor
@@ -426,7 +433,7 @@ function direc(form){
 function doce(form){
 	//declaracion de variables que proceden del form
 	profesor = form.clv.value;
-	peduc=form.pln.value;
+	/*peduc=form.pln.value;*/
 	nivel=form.nives.value;
 	depen=form.inst.value;
 	ncurso=form.curs.value;
@@ -437,8 +444,7 @@ function doce(form){
 	hcurso=form.hracurso.value;
 	var flag = "docencia";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 
-	if(profesor!="0"){//validacion de clave de profesor
-		if(peduc!="0"){//validacion de plan 
+	if(profesor!="0"){//validacion de clave de profesor		
 			if(nivel!="0"){//validacion de nivel de estudio
 				if(depen!="0"){//validacion de dependencia
 					if(ncurso!="0"){//validacion de nombre de curso
@@ -446,7 +452,7 @@ function doce(form){
 							enviar=new XMLHttpRequest;
 						  	enviar.open('POST','datos.php');
 						  	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-						  	enviar.send('clave='+profesor+'&programa='+peduc+'&nestudio='+nivel+'&dependencia='+depen+'&nombrec='+ncurso+
+						  	enviar.send('clave='+profesor+'&nestudio='+nivel+'&dependencia='+depen+'&nombrec='+ncurso+
 						  	'&finicio='+fechai+'&numalum='+noal+'&duracion='+dsemana+'&horas='+haseso+'&curso='+hcurso+'&flag='+flag);
 						  	enviar.onreadystatechange = function(){
 						  		if(enviar.readyState == 4 && enviar.status == 200){
@@ -481,10 +487,7 @@ function doce(form){
 				}
 			}else{
 				verModal('grande','','Ok', 'Verifica el nivel de estudio' );
-			}
-		}else{
-			verModal('grande','','Ok', 'Verifica el Plan' );
-		}
+			}		
 	}else{
 		verModal('grande','','Ok', 'Verifica la clave de profesor' );
 	}

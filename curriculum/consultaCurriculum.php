@@ -410,7 +410,7 @@
 					<td>".$row['tipoNombramiento']."</td>
 				</tr>
 				<tr>
-					<th>Dedicacion</th>
+					<th>Dedicación</th>
 					<th>Dependencia de educación</th>
 					<th>Unidad academica</th>
 				</tr>
@@ -422,7 +422,7 @@
 				<tr>
 					<th>Fecha de inicio del contrato</th>
 					<th>Fecha de fin</th>
-					<th>Cronologia</th>
+					<th>Cronología</th>
 				</tr>
 				<tr>
 					<td>".$row['inicio']."</td>

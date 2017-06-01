@@ -67,7 +67,7 @@ $con = Conectarse();
 					<?php } ?>
 	   		</select></div>	   		
 	   		<div class="div4"><input style="width: 190px;" type="date" id="fecini"></div>
-	   		<div class="div4"><input style=" width: 190px; height: 25px;" type="number" id="alumnos"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="alumnos"></div>
 	   		<div class="div12"></div>
 	   		
 	   		
@@ -76,9 +76,9 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Horas semanales dedicadas<br>al curso</h4></div> 
 	   		<div class="div12"></div>
 	   		
-	   		<div class="div4"><input style=" width: 190px; height: 25px;" type="number" id="durar"></div>
-	   		<div class="div4"><input style=" width: 190px; height: 25px;" type="number" id="mesase"></div>	
-	   		<div class="div4"> <input style=" width: 190px; height: 25px;" type="number" id="hracurso"> </div>  		
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="durar"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="mesase"></div>	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="hracurso"> </div>  		
 	   		<div class="div12"></div>
 	   		
 	   		<div class="div12"></div>

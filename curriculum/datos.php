@@ -36,10 +36,10 @@
 		$telo = ($_POST['telof']!="") ? $_POST['telof'] : 'NA';
 		$correo = $_POST['mail'];
 		$correo2 = ($_POST['mail2']!="") ? $_POST['mail2'] : 'NA';
-		$promep = ($_POST['respro']!="") ? $_POST['respro'] : '0';
-		$fecpro = ($_POST['fecp']!="") ? $_POST['fecp'] : null;
-		$sni = ($_POST['ress']!="") ? $_POST['ress'] : '0';
-		$fecsni = ($_POST['fecs']!="") ? $_POST['fecs'] : null;
+		$promep = ($_POST['respro']!="3") ? $_POST['respro'] : 0;
+		$fecpro = ($_POST['fecp']!="") ? $_POST['fecp'] : 'null';
+		$sni = ($_POST['ress']!="3") ? $_POST['ress'] : 0;
+		$fecsni = ($_POST['fecs']!="") ? $_POST['fecs'] : 'null';
 		$extension = ($_POST['extn']!="") ?	$_POST['extn'] : 'NA';
 
 		$find="(SELECT COUNT(*) as TOTAL FROM profesor WHERE cveProfesor LIKE '".$clave."')";
@@ -113,7 +113,7 @@
 	//DOCENCIA
 	if($flag == "docencia"){
 		$clave = $_POST['clave'];
-		$plan = $_POST['programa'];
+		/*$plan = $_POST['programa'];*/
 		$nivel = $_POST['nestudio'];
 		$institu = $_POST['dependencia'];
 		$curso = $_POST['nombrec'];
@@ -128,7 +128,7 @@
 		$res=$resultado->fetch_object();
 		if($res->TOTAL>=1){
 			$sql = "INSERT INTO docencia (cveProfesor,idEstudio,cveInstitucion,cveCurso,fechaInicio,numAlumnos,duracionSemanas,horasAsesoriaMes,horasSemana,dependencia) 
-			VALUES ($clave,$nivel,$institu,$curso,'$fechai','$nalumnos','$semana','$asesoria','$curs','$institu')";		
+			VALUES ($clave,$nivel,$institu,$curso,'$fechai',$nalumnos,$semana,$asesoria,$curs,'$institu')";		
 			if(mysqli_query($con, $sql)){	
 				echo"OK";
 			}else{
