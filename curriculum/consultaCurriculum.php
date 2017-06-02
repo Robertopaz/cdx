@@ -13,7 +13,13 @@
 	if ($flag=="Completo") {
 		echo $flag;
 	}
-
+	elseif($flag=="lista"){
+		$sql="SELECT cveProfesor, nombre FROM profesor";
+		$resultado=mysqli_query($con,$sql);
+		while ($profe = mysqli_fetch_array($resultado)) {
+		echo "<option value=".$profe[0].">".$profe[0]." - ".$profe[1]."</option>";
+		}
+	}
 	
 	elseif ($flag=="Profesor") {//Esta condicion es para desplegar la informacion basica del profesor
 		$sql="SELECT profesor.*,pais.nombrepais, edocivil.estado,date_format(fechaNac,'%d-%m-%Y') as nacimiento FROM profesor INNER JOIN pais  on profesor.idPais=pais.idPais INNER JOIN edocivil ON edocivil.idEdoCivil=profesor.idEdoCivil WHERE cveProfesor='".$parametro."' OR nombre like '%".$parametro."%'";

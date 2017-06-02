@@ -56,7 +56,7 @@ function busquedaEliminar() {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		cuerpoConsulta.innerHTML=respuesta;
+	  		alert(respuesta);
 
 	  	}
 	  }
@@ -229,7 +229,9 @@ function eliminar(idEliminar) {
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
 	  		console.log(respuesta)
+
 	  	}
+	  	cargarProfesores()
 	  }
 	}
 	else if (valor=="Articulos") {
@@ -383,7 +385,24 @@ function eliminar(idEliminar) {
 	else{
 		alert("Error");
 	}
-	window.location.assign("consulta.php");
 
 	}
+
+}
+function cargarProfesores(){
+	listaProfesores= document.getElementById('cve-nom');
+	listaProfesores.innerHTML=""
+	enviar=new XMLHttpRequest;
+	valor="lista"
+	idEliminar="0"
+	enviar.open('POST','consultaCurriculum.php');
+	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar.send('flag='+valor+'&p='+idEliminar);
+		enviar.onreadystatechange = function(){
+	  	if(enviar.readyState == 4 && enviar.status == 200){
+	  		respuesta=enviar.responseText;
+	  		listaProfesores.innerHTML=respuesta
+	  	}
+	  }
+
 }
