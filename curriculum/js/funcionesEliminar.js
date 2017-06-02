@@ -228,12 +228,16 @@ function eliminar(idEliminar) {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		console.log(respuesta)
-
-	  	}
-	  	cargarProfesores()
+	  		if (respuesta=="Eliminado") {
+	  			cargarProfesores();
+	  		}
+	  		else{
+	  			alert(respuesta)
+	  		}
 	  }
 	}
+}
+
 	else if (valor=="Articulos") {
 		
 		enviar.send('flag='+valor+"&p="+idEliminar);

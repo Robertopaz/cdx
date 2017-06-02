@@ -7,13 +7,13 @@
 				echo $flag;
 	}
 	elseif ($flag=="Profesor") {
-		echo $sql="DELETE FROM profesor WHERE cveProfesor='".$parametro."' OR nombre like '%".$parametro."%'";
+		$sql="DELETE FROM profesor WHERE cveProfesor='".$parametro."' OR nombre like '%".$parametro."%'";
 		if($con->query($sql)===TRUE){
 			echo "Eliminado";
 
 		}
 		else{
-			echo "Error:". $con->error;
+			echo "No se puede eliminar este profesor hasta que elimine los todo lo relacionado con el profesor";
 		}
 		
 
@@ -190,5 +190,4 @@
 		echo "error";
 	}
 
- ?>		}
-		}
+ ?>	
