@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2017 a las 19:30:53
+-- Tiempo de generación: 06-06-2017 a las 17:26:20
 -- Versión del servidor: 10.1.13-MariaDB
 -- Versión de PHP: 7.0.6
 
@@ -642,7 +642,8 @@ CREATE TABLE `datoslaborales` (
 --
 
 INSERT INTO `datoslaborales` (`cveDatosLaborales`, `cveInstitucion`, `cveProfesor`, `nombramiento`, `tipoNombramiento`, `dedicacion`, `dependencia`, `unidadAcademica`, `inicioContrato`, `finContrato`, `cronologia`) VALUES
-(2, 14, 13259, 'tipo2', 'Nombramiento', 'dedicacion22', 'dependencia', 'unidad', '2017-05-17', '2017-05-24', 'segunda 1911');
+(2, 14, 13259, '', '', 'dedicacion22', 'dependencia', 'unidad', '2017-05-17', '2017-05-24', 'segunda'),
+(3, 11, 123456, 'PRUEBA', 'NA', 'kjjj', 'NA', 'NA', '2017-05-26', '2017-05-27', 'NA');
 
 -- --------------------------------------------------------
 
@@ -697,7 +698,8 @@ CREATE TABLE `docencia` (
 
 INSERT INTO `docencia` (`cveDocencia`, `cveCurso`, `cveInstitucion`, `cveProfesor`, `idEstudio`, `dependencia`, `fechaInicio`, `numAlumnos`, `duracionSemanas`, `horasAsesoriaMes`, `horasSemana`) VALUES
 (3, 4, 131, 13259, 2, '9', '2030-12-15', 28, 23, 1357, 24),
-(4, 523, 1, 13259, 1, '17', '2017-05-15', 8, 7, 6, 5);
+(4, 523, 1, 13259, 1, '17', '2017-05-15', 8, 7, 6, 5),
+(5, 526, 1, 123456, 1, '1', '2017-06-01', 15, 15, 15, 15);
 
 -- --------------------------------------------------------
 
@@ -805,7 +807,7 @@ CREATE TABLE `estudio` (
   `idPais` int(11) NOT NULL,
   `estudioEn` varchar(40) COLLATE utf8_spanish_ci DEFAULT NULL,
   `disciplinaEstudio` varchar(40) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `institucionNoCatalogo` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `institucionNoCatalogo` varchar(70) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fechaInicio` date DEFAULT NULL,
   `fechaFin` date DEFAULT NULL,
   `fechaObtencion` date DEFAULT NULL,
@@ -818,7 +820,7 @@ CREATE TABLE `estudio` (
 --
 
 INSERT INTO `estudio` (`cveEstudio`, `cveProfesor`, `cveInstitucion`, `idPais`, `estudioEn`, `disciplinaEstudio`, `institucionNoCatalogo`, `fechaInicio`, `fechaFin`, `fechaObtencion`, `idEstudio`, `idArea`) VALUES
-(2, 13259, 134, 146, 'estudios en 2', 'Disciplina 2', 'otra prueba de inst', '2015-02-25', '2017-02-15', '2020-05-25', 1, 2),
+(2, 13259, 134, 146, 'estudios en 2', 'Disciplina 2', 'Institución Otorgante no considerada en el catalog', '2015-02-25', '2017-02-15', '2020-05-25', 1, 2),
 (4, 13259, 16, 146, 'HOY 22 0 23', 'HOY 22 O 23', '', '2001-01-01', '2002-01-01', '2003-01-01', 2, 3);
 
 -- --------------------------------------------------------
@@ -1021,7 +1023,7 @@ CREATE TABLE `lgac` (
 --
 
 INSERT INTO `lgac` (`cveGAC`, `cveProfesor`, `campo`, `actividades`, `horas`) VALUES
-(1, 13259, 'Campo 2', 'Actividades2', 1147);
+(1, 13259, 'Campo 2 ', 'Actividades2', 0);
 
 -- --------------------------------------------------------
 
@@ -1353,7 +1355,9 @@ CREATE TABLE `premio` (
 
 INSERT INTO `premio` (`cvePremio`, `cveProfesor`, `cveInstitucion`, `nombrePremio`, `motivo`, `fechaObtencion`, `otraInstitucionOtorgante`) VALUES
 (11, 13259, 19, 'Premio', 'Motivo de premio', '2017-04-15', 'null'),
-(12, 13259, 134, ' nombre dos', 'por otra institucion', '2016-05-15', 'Institucion de prueba');
+(12, 13259, 134, ' nombre dos', 'por otra institucion', '2016-05-15', 'Institucion de prueba'),
+(13, 123456, 134, 'NOMBRE PREMIO', 'MOTIVO DEL PREMIO', '2017-05-29', 'NOMBRE DE LA OTRA INSTITUCION'),
+(14, 123456, 10, ' NOMBRE 2', ' MOTIVO 2', '2017-05-30', 'NOMBRE DE LA OTRA INSTITUCION');
 
 -- --------------------------------------------------------
 
@@ -1439,7 +1443,7 @@ CREATE TABLE `profesor` (
   `fechaSNI` date DEFAULT NULL,
   `idPais` int(11) NOT NULL,
   `idEdoCivil` int(11) NOT NULL,
-  `ext` int(5) DEFAULT NULL
+  `ext` varchar(5) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -1447,8 +1451,8 @@ CREATE TABLE `profesor` (
 --
 
 INSERT INTO `profesor` (`cveProfesor`, `nombre`, `genero`, `curp`, `entidadNacimiento`, `fechaNac`, `telefonoProfesor`, `telefonoTrabajo`, `email`, `emailAdicional`, `tienePromep`, `fechaPromep`, `tieneSNI`, `fechaSNI`, `idPais`, `idEdoCivil`, `ext`) VALUES
-(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, 5914),
-(123456, 'Olvera De Jesus Josue', 1, 'OEJJ921115HQTLSS05', 'Querétaro', '1992-12-15', '123456789410', '12345678', 'jdej271@gmail.com', 'josue.olvera@uaq.com.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, 4561);
+(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '5914'),
+(123456, 'Olvera De Jesus Josue', 1, 'OEJJ921115HQTLSS05', 'Querétaro', '1992-12-15', '123456789410', '12345678', 'jdej271@gmail.com', 'josue.olvera@uaq.com.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '4561');
 
 -- --------------------------------------------------------
 
@@ -1501,7 +1505,7 @@ CREATE TABLE `proyectoinvestigacion` (
 --
 
 INSERT INTO `proyectoinvestigacion` (`cveProyectoInvestigacion`, `cveProfesor`, `titulo`, `nombrePatrocinador`, `fechaInicioProyecto`, `fechaFinProyecto`, `patrocinadorInterno`, `investigadores`, `alumnos`, `actividades`, `consideracionCurriculum`, `miembros`, `LGACs`) VALUES
-(2, 13259, ' Titulo 2', 'Patrocinador', '2016-12-15', '2017-05-25', 1, 'Investigadores 2', 'Alumnos', 'Actividades 2', NULL, 100, 500),
+(2, 13259, '  Titulo 2', 'Patrocinador', '2016-12-15', '2017-05-25', 0, 'Investigadores 2', 'Alumnos', 'Actividades 2', NULL, 100, 500),
 (4, 13259, 'Prueba', 'Prueba', '2017-05-15', '2017-05-02', 1, 'PRUEBAS', 'PRUEBAS', 'PRUEBAS', NULL, 111, 111),
 (5, 13259, 'PRUEBA2', 'PRUEBA2', '2017-05-15', '2017-05-18', 1, 'PRUEBA', 'PRUEBA1', 'PRUEBA', NULL, 5, 5);
 
@@ -1785,7 +1789,7 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT de la tabla `datoslaborales`
 --
 ALTER TABLE `datoslaborales`
-  MODIFY `cveDatosLaborales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cveDatosLaborales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `direccionindividualizada`
 --
@@ -1795,7 +1799,7 @@ ALTER TABLE `direccionindividualizada`
 -- AUTO_INCREMENT de la tabla `docencia`
 --
 ALTER TABLE `docencia`
-  MODIFY `cveDocencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cveDocencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `edocivil`
 --
@@ -1840,7 +1844,7 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de la tabla `premio`
 --
 ALTER TABLE `premio`
-  MODIFY `cvePremio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cvePremio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `produccionacademica`
 --
