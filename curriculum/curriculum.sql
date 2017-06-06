@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2017 a las 17:26:20
--- Versión del servidor: 10.1.13-MariaDB
--- Versión de PHP: 7.0.6
+-- Tiempo de generación: 06-06-2017 a las 18:46:58
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -1443,16 +1443,17 @@ CREATE TABLE `profesor` (
   `fechaSNI` date DEFAULT NULL,
   `idPais` int(11) NOT NULL,
   `idEdoCivil` int(11) NOT NULL,
-  `ext` varchar(5) COLLATE utf8_spanish_ci DEFAULT NULL
+  `ext` varchar(5) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `habilitado` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `profesor`
 --
 
-INSERT INTO `profesor` (`cveProfesor`, `nombre`, `genero`, `curp`, `entidadNacimiento`, `fechaNac`, `telefonoProfesor`, `telefonoTrabajo`, `email`, `emailAdicional`, `tienePromep`, `fechaPromep`, `tieneSNI`, `fechaSNI`, `idPais`, `idEdoCivil`, `ext`) VALUES
-(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '5914'),
-(123456, 'Olvera De Jesus Josue', 1, 'OEJJ921115HQTLSS05', 'Querétaro', '1992-12-15', '123456789410', '12345678', 'jdej271@gmail.com', 'josue.olvera@uaq.com.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '4561');
+INSERT INTO `profesor` (`cveProfesor`, `nombre`, `genero`, `curp`, `entidadNacimiento`, `fechaNac`, `telefonoProfesor`, `telefonoTrabajo`, `email`, `emailAdicional`, `tienePromep`, `fechaPromep`, `tieneSNI`, `fechaSNI`, `idPais`, `idEdoCivil`, `ext`, `habilitado`) VALUES
+(13259, 'Ibarra Corona Diego Octavio', 1, 'IACD910628HMCBRG05', 'México', '1991-06-28', '4423178255', '1921200', 'diego.ico@outlook.com', 'diego.octavio.ibarra@uaq.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '5914', 0),
+(123456, 'Olvera De Jesus Josue', 1, 'OEJJ921115HQTLSS05', 'Querétaro', '1992-12-15', '123456789410', '12345678', 'jdej271@gmail.com', 'josue.olvera@uaq.com.mx', 0, '0000-00-00', 0, '0000-00-00', 146, 1, '4561', 0);
 
 -- --------------------------------------------------------
 
