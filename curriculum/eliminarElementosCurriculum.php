@@ -7,9 +7,9 @@
 				echo $flag;
 	}
 	elseif ($flag=="Profesor") {
-		$sql="DELETE FROM profesor WHERE cveProfesor='".$parametro."' OR nombre like '%".$parametro."%'";
+		$sql="UPDATE profesor SET habilitado='0' WHERE cveProfesor='".$parametro."' OR nombre like '%".$parametro."%'";
 		if($con->query($sql)===TRUE){
-			echo "Eliminado";
+			echo "Ok";
 
 		}
 		else{

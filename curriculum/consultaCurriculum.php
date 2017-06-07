@@ -14,7 +14,7 @@
 		echo $flag;
 	}
 	elseif($flag=="lista"){
-		$sql="SELECT cveProfesor, nombre FROM profesor";
+		$sql="SELECT cveProfesor, nombre FROM profesor WHERE habilitado='1'";
 		$resultado=mysqli_query($con,$sql);
 		while ($profe = mysqli_fetch_array($resultado)) {
 		echo "<option value=".$profe[0].">".$profe[0]." - ".$profe[1]."</option>";

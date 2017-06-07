@@ -41,7 +41,7 @@ if(isset($_SESSION['valida'])){
 				<select id="cve-nom" style="width: 230px">
 					<option>Seleccionar Profesor</option>
 					<?php 
-						$sql="SELECT cveProfesor, nombre FROM profesor";
+						$sql="SELECT cveProfesor, nombre FROM profesor WHERE habilitado='1'";
 						$resultado=mysqli_query($con,$sql);
 						while ($profe = mysqli_fetch_array($resultado)) {
 					?>
