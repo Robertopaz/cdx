@@ -46,8 +46,8 @@
 		$resultado=mysqli_query($con,$find);
 		$res=$resultado->fetch_object();
 		if($res->TOTAL==0){
-			$sql = "INSERT INTO profesor (cveProfesor,nombre,genero,curp,idEdoCivil,idPais,entidadNacimiento,fechaNac,telefonoProfesor,telefonoTrabajo,email,emailAdicional,tienePromep,fechaPromep,tieneSNI,fechaSNI,ext) 
-			VALUES ($clave,'$nombre',$gene,'$curp',$civil,'$pais','$enti','$fecbi','$phone','$telo','$correo','$correo2',$promep,'$fecpro',$sni,'$fecsni','$extension')";		
+			$sql = "INSERT INTO profesor (cveProfesor,nombre,genero,curp,idEdoCivil,idPais,entidadNacimiento,fechaNac,telefonoProfesor,telefonoTrabajo,email,emailAdicional,tienePromep,fechaPromep,tieneSNI,fechaSNI,ext,habilitado) 
+			VALUES ($clave,'$nombre',$gene,'$curp',$civil,'$pais','$enti','$fecbi','$phone','$telo','$correo','$correo2',$promep,'$fecpro',$sni,'$fecsni','$extension', 1)";		
 			if(mysqli_query($con, $sql)){	
 				echo"OK";
 			}else{

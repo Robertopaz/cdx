@@ -7,7 +7,25 @@ include 'up.php';
 include 'conex.php';
 $con = Conectarse();
 ?>
-<script src="js/funciones.js">
+<script>
+    $( function() {
+    $( "#feciges" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fectges" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecuinfo" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -17,10 +35,10 @@ $con = Conectarse();
 			<h1>Gestión Académica</h1> </div>
 		<div class="div12"></div>
 	    <div class="div12"></div>
-	   	
-	   	
+
+
 	   	<form onsubmit="return false">
-	   		
+
 	   		<div class="div4"><h4>Clave de profesor</h4></div>
 	   		<div class="div4"><h4>Tipo de gestión</h4></div>
 	   		<div class="div4"><h4>Cargo</h4></div>
@@ -33,9 +51,9 @@ $con = Conectarse();
 						while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>	   		
+	   		</select></div>
 	   		<div class="div4">
-	   			<select id="tipo" style="width: 220px;"> 
+	   			<select id="tipo" style="width: 220px;">
 	   			<option value="2" style="display:none">Selecciona...</option>
 	   			<option value="1">Individual</option>
 	   			<option value="0">Colectivo</option>
@@ -43,21 +61,21 @@ $con = Conectarse();
 	   		</div>
 	   		<div class="div4"> <input type="text" id="cargo" placeholder="ej. Coordinador"></div>
 	   		<div class="div12"></div>
-	   		
-	   			   		
+
+
 	   		<div class="div4"><h4>Función</h4></div>
 	   		<div class="div4"><h4>Órgano colegiado</h4></div>
 	   		<div class="div4"><h4>Aprobado</h4></div>
 	   		<div class="div12"></div>
 
-	   		<div class="div4"><textarea id="fun"></textarea></div>	   		
-	   		<div class="div4"><textarea id="cole"></textarea></div>	   		
+	   		<div class="div4"><textarea id="fun"></textarea></div>
+	   		<div class="div4"><textarea id="cole"></textarea></div>
 	   		<div class="div4"><select style="width: 190px;" id="apro">
 	   		<option value="2" style="display:none">Selecciona...</option>
 	   				<option value="1">Si</option>
 	   				<option value="0">No</option>
 	   			</select>
-	   		</div>	   		
+	   		</div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Resultados</h4></div>
@@ -65,26 +83,26 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Fecha de inicio de gestión</h4></div>
 	   		<div class="div12"></div>
 
-	   		<div class="div4"><textarea id="resul"></textarea></div>	   		
+	   		<div class="div4"><textarea id="resul"></textarea></div>
 	   		<div class="div4"><select style="width: 190px;" id="term">
 	   		<option value="2" style="display:none">Selecciona...</option>
 	   			<option value="1">Si</option>
 	   			<option value="0">No</option>
 	   		</select></div>
-	   		<div class="div4"><input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="feciges"></div>
+	   		<div class="div4"><input style="width: 190px;" type="text" id="feciges"></div>
 	   		<div class="div12"></div>
-	   		
-	   		
+
+
 	   		<div class="div4"><h4>Fecha de término<br>de gestión</h4></div>
 	   		<div class="div4"><h4>Fecha de último informe</h4></div>
 	   		<div class="div4"><h4>Horas a la semana</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="fectges"></div>
-	   		<div class="div4"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="fecuinfo"></div>
-	   		<div class="div4"><input style="height: 25px;" placeholder="Sólo números" type="number" id="hra"></div>
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fectges"></div>
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecuinfo"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" placeholder="Sólo números" type="text" id="hra"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="gestionacademica(this.form)">Guardar</button>   	
+	   	<button class="div1 menta" id="boton" onclick="gestionacademica(this.form)">Guardar</button>
 	   	</form>
 	   	<div class="div12"></div>
 	</div>

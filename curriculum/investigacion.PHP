@@ -9,8 +9,20 @@ include 'conex.php';
 $con = Conectarse();
 
 ?>
-<script src="js/funciones.js">
-</script>
+<script>
+  $( function() {
+    $( "#fecip" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecfp" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
 	<div id="contenido">
@@ -44,8 +56,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Fecha de fin del proyecto</h4></div>
 	   		<div class="div4"><h4>Patrocinador interno</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecip"></div>
-	   		<div class="div4"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecfp"></div>
+	   		<div class="div4"> <input type="text" id="fecip"></div>
+	   		<div class="div4"> <input type="text" id="fecfp"></div>
 	   		<div class="div4"><select style="width: 190px;" id="patroc" >
 	   			<option value="2" style="display: none;">Selecciona...</option>
 	   			<option value="1">Si</option>
@@ -64,8 +76,8 @@ $con = Conectarse();
 	   		<div class="div6"><h4>Miembros</h4></div>
 	   		<div class="div6"><h4>Lineas de generación o<br>aplicación innovadora del conocimiento</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"> <input onkeypress="return valida(event)" type="text" id="mien"></div>
-	   		<div class="div6"> <input onkeypress="return valida(event)" type="text" id="lgaic"></div>
+	   		<div class="div6"> <input onkeypress="return valida(event)" placeholder="solo número" type="text" id="mien"></div>
+	   		<div class="div6"> <input onkeypress="return valida(event)" placeholder="solo número" type="text" id="lgaic"></div>
 
 	   		
 	   		<div class="div12"></div>

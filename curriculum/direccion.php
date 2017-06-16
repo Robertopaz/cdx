@@ -7,7 +7,25 @@ include 'up.php';
 include 'conex.php';
 $con = Conectarse();
 ?>
-<script src="js/funciones.js">
+<script>
+	$( function() {
+    $( "#fecini" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecter" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecsni" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -17,10 +35,10 @@ $con = Conectarse();
 			<h1>Dirección Individualizada</h1> </div>
 		<div class="div12"></div>
 	    <div class="div12"></div>
-	   	
-	   	
+
+
 	   	<form onsubmit="return false">
-	   		
+
 	   		<div class="div4"><h4>Clave de profesor</h4></div>
 	   		<div class="div4"><h4>Título de la tesis o proyecto individual</h4></div>
 	   		<div class="div4"><h4>Nivel de Estudio</h4></div>
@@ -33,7 +51,7 @@ $con = Conectarse();
 						while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>		
+	   		</select></div>
 	   		<div class="div4"><input type="text" id="titulo"></div>
 	   		<div class="div4"> <select style="width: 200px;" id="nest" ">
 	   			<?php $qri = "SELECT estudio AS nombre, idEstudio AS clave FROM nivelestudio";
@@ -42,26 +60,26 @@ $con = Conectarse();
 						<option value="0" style="display: none;">Selecciona...</option>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>	   		
+	   		</select></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Fecha de inicio</h4></div>
 	   		<div class="div4"><h4>Fecha de término</h4></div>
 	   		<div class="div4"><h4>No. alumnos</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input type="date" id="fecini"></div>	   		
-	   		<div class="div4"><input type="date" id="fecter"></div>
-	   		<div class="div4"><input type="number" id="alumno"></div>
+	   		<div class="div4"><input type="text" id="fecini" ></div>
+	   		<div class="div4"><input type="text" id="fecter" ></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="alumno"></div>
 	   		<div class="div12"></div>
 
-	   		
+
 	   		<div class="div4"> <h4>Status</h4> </div>
 	   		<div class="div4"> <h4>IES en la que realiza la dirección individualizada</h4> </div>
 	   		<div class="div4"> <h4 id="nomInst" style="display: none">Nombre de la Intitución</h4> </div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4">
-	   			<select style="width: 200px" id="state" > 
+	   			<select style="width: 200px" id="state" >
 	   				<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 						  $resul=mysqli_query($con,$qri);
 					 	  while($row1 = $resul->fetch_object()){?>
@@ -82,7 +100,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="direc(this.form)">Guardar</button>   	
+	   	<button class="div1 menta" id="boton" onclick="direc(this.form)">Guardar</button>
 	   	</form>
 	   	<div class="div12"></div>
 	</div>

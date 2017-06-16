@@ -10,6 +10,12 @@
 	<script type="text/javascript" src="js/funcionesConsulta.js"></script>
 	<script type="text/javascript" src="js/funcionesEliminar.js"></script>
 	<script type="text/javascript" src="js/modificar.js"></script>
+	<script type="text/javascript" src="js/funciones.js"> </script>
+   <!--Jquery de datepicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -40,7 +46,7 @@
 			<a href="premios.php"><li>Premios y distinciones</li></a>
 			<a href="produccion.php"><li>Producción academica</li></a>
 			<a href="investigacion.php"><li>Proyectos de investigación</li></a>
-			<a href="tutoria.php"><li>Tutorías</li></a>			
+			<a href="tutoria.php"><li>Tutorías</li></a>
 			<li></li>
 		</ul></li>
 		<a href="consulta.php"><li>Consulta</li></a>

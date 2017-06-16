@@ -9,8 +9,20 @@ include 'conex.php';
 $con = Conectarse();
 
 ?>
-<script src="js/funciones.js">
-</script>
+<script>
+  $( function() {
+    $( "#feci" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecf" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
 	<div id="contenido">
@@ -66,13 +78,13 @@ $con = Conectarse();
 	   			<option value="1">Sí</option>
 	   			<option value="0">No</option>
 	   		</select></div>
-	   		<div class="div4"><input type="date" id="feci" style="width: 190px;"></div>
+	   		<div class="div4"><input type="text" id="feci"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div6"><h4>Fecha de fin</h4></div>
 	   		<div class="div6"><h4>Tipo de tutoria</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"><input type="date" id="fecf" style="width: 350px;"></div>
+	   		<div class="div6"><input type="text" style="width:360px;" id="fecf"></div>
 	   		<div class="div6"> <input type="text" id="tipo" style="width: 350px;"></div>
 	   		
 	   		<div class="div12"></div>

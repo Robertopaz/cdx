@@ -216,20 +216,25 @@ function alta(form){
 	civil=form.estado.value;
 	pais=form.coun.value;
 	enti=form.entidad.value;
-	fecbi=form.birth.value;
+	fecbi1=form.birth.value;
 	phone=form.tel.value;
 	telo=form.tel2.value;
 	mai=form.correo.value;
 	maiadi=form.correo2.value;
 	promed=form.respromep.value;
-	fecpro=form.fecpromep.value;
+	fecpro1 = form.fecpromep.value;
 	sni=form.resni.value;
-	fecsni=form.fecsni.value;
+	fecsni1 = form.fecsni.value;
 	ext=form.exten.value;
+
+	fecbi = fecbi1.split("/").reverse().join("/");
+	fecpro = fecpro1.split("/").reverse().join("/");
+	fecsni = fecsni1.split("/").reverse().join("/");
 
 	var flag = "altap"; //bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 
 	//creacion de formato de telefono
+	console.log(fecbi);
 
 	//inicio de if anidados, los cuales validan los datos del formulario que son requeridos
 	if (profesor!=""){ //clave de profesor
@@ -314,11 +319,13 @@ function laboral(form){
 	dedica = form.dedi.value;
 	depend = form.depen.value;
 	academica = form.uni.value;
-	fechai = form.fecini.value;
-	fechaf = form.fecfin.value;
+	fechai1 = form.fecini.value;
+	fechaf1 = form.fecfin.value;
 	cronolog = form.crono.value;
 	var flag = "labo"; //bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 
+	fechai = fechai1.split("/").reverse().join("/");
+	fechaf = fechaf1.split("/").reverse().join("/");
 	//validacion de que las fechas sean una antes que la otra. Puede englobar todas los demas if que existen
 
 	if(profesor!="0"){//valida que profesor tenga alguna clave
@@ -375,14 +382,16 @@ function direc(form){
 	profesor = form.clv.value;
 	tesis = form.titulo.value;
 	nivel= form.nest.value;
-	fechai=form.fecini.value;
-	fechat= form.fecter.value;
+	fechai1=form.fecini.value;
+	fechat1= form.fecter.value;
 	numa= form.alumno.value;
 	esta= form.state.value;
 	institucion= form.inst.value;
 	nombreOtraInst = form.nueva.value;
 	var flag = "direcc";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 	
+	fechai = fechai1.split("/").reverse().join("/")
+	fechat = fechat1.split("/").reverse().join("/")
 	//validacion de fecha
 
 	if(profesor!="0"){//validacion de clave de profesor
@@ -437,11 +446,12 @@ function doce(form){
 	nivel=form.nives.value;
 	depen=form.inst.value;
 	ncurso=form.curs.value;
-	fechai=form.fecini.value;
+	fechai1=form.fecini.value;
 	noal=form.alumnos.value;
 	dsemana=form.durar.value;
 	haseso=form.mesase.value;
 	hcurso=form.hracurso.value;
+	fechai = fechai1.split("/").reverse().join("/");
 	var flag = "docencia";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 
 	if(profesor!="0"){//validacion de clave de profesor		
@@ -503,10 +513,13 @@ function study(form){
 	pai=form.coun.value;
 	institu=form.inst.value;
 	oher=form.otra.value;
-	finicio=form.fecini.value;
-	ffin=form.fecfin.value;
+	finicio1=form.fecini.value;
+	ffin1=form.fecfin.value;
 	obtencion=form.tit.value;
 	nombreOtraInst = form.otra.value;
+
+	finicio = finicio1.split("/").reverse().join("/");
+	ffin = ffin1.split("/").reverse().join("/");
 	var flag="estud";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 	
 	//validar las fechas
@@ -580,10 +593,13 @@ function gestionacademica(form){
 	apr = form.apro.value;
 	res = form.resul.value;
 	ter = form.term.value;
-	fecges = form.feciges.value;
-	fectges = form.fectges.value;
-	fecinfo = form.fecuinfo.value;
+	fecges1 = form.feciges.value;
+	fectges1 = form.fectges.value;
+	fecinfo1 = form.fecuinfo.value;
 	hrs = form.hra.value;
+	fecges = fecges1.split("/").reverse().join("/");
+	fectges = fectges1.split("/").reverse().join("/");
+	fecinfo = fecinfo1.split("/").reverse().join("/");
 	var flag= "gestion";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 	
 	if(profesor!="0"){
@@ -686,9 +702,11 @@ function premios(form){
 	clva= form.clv.value;
 	prem= form.premio.value;
 	mot= form.motivo.value;
-	obt= form.fecob.value;
+	obt1= form.fecob.value;
 	inst= form.insot.value;
 	otroa= form.nueva.value;
+    obt = obt1.split("/").reverse().join("/");
+
 	var flag="premi";
 
 	if(clva!="0"){		
@@ -732,8 +750,8 @@ function investigacion(form){
 	prof= form.clv.value;
 	titu= form.tit.value;
 	nompat= form.pat.value;
-	fecip= form.fecip.value;
-	fecfp= form.fecfp.value;
+	fecip1 = form.fecip.value;
+	fecfp1 = form.fecfp.value;
 	patint= form.patroc.value;
 	inv= form.inves.value;
 	alu= form.alum.value;
@@ -741,6 +759,9 @@ function investigacion(form){
 	miem= form.mien.value;
 	lga= form.lgaic.value;
 	var flag='proyectos';
+
+	fecip = fecip1.split("/").reverse().join("/");
+	fecfp = fecfp1.split("/").reverse().join("/");
 
 	if(prof!="0"){		
 		if(titu!=""){
@@ -807,10 +828,13 @@ function tutorias (form){
 	alum=form.alu.value;
 	niv=form.nil.value;
 	pro=form.prog.value;
-	fecin=form.feci.value;
+	fecin1 = form.feci.value;
 	ter=form.term.value;
-	fecfn=form.fecf.value;
+	fecfn1 = form.fecf.value;
 	tip=form.tipo.value;
+
+	fecin = fecin1.split("/").reverse().join("/");
+	fecfn = fecfn1.split("/").reverse().join("/");
 	var flag = "tutoria";
 
 	if(clav!="0"){		

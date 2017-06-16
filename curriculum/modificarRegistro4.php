@@ -11,6 +11,65 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 ?>
 <script src="js/funciones.js"></script>
 <script src="js/produc.js"></script>
+<script>
+  $( function() {
+    $( "#fecpub" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub1" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub2" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub3" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub4" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub5" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub6" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub7" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub8" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpro" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpro1" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+</script>
 
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -85,7 +144,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 	   		<div class="div1"></div><div class="div2"><h4>ISSN</h4></div>
 	   		<div class="div3"><input placeholder="" type="text" id="issn" onblur="validar2(this.id)" required value=<?php echo $row[13];?>></div>		
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
 
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
@@ -169,7 +228,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub1" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="propo">
 	   		<option><?php echo $row[34];?></option>
@@ -264,7 +323,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 	   		<div class="div1"></div><div class="div2"><h4>ISSN</h4></div>
 	   		<div class="div3"><input placeholder="" type="text" id="issn" onblur="validar2(this.id)" required value=<?php echo $row[13];?>></div>		
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub2" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	   		
 
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"<h4>Propósito</h4></div>
@@ -333,7 +392,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 					<?php } ?>
 	   		</select></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha inicio de proyecto</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpro" onblur="validar2(this.id)" required value=<?php echo $row[7];?>></div>
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpro" onblur="validar2(this.id)" required value=<?php echo $row[7];?>></div>
 	   		
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Empresa o dependencia beficiaria </h4></div>
@@ -381,7 +440,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 
 			<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub3" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
 	   		<div class="div1"></div><div class="div2"><h4>Pais</h4></div>
 	   		<div class="div3"> <select style="width: 190px;" id="coun">
 	   			<option style="display: block;">Selecciona el Pais</option>
@@ -480,7 +539,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 					<?php } ?>
 	   		</select></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha inicio de proyecto</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpro" onblur="validar2(this.id)" required value=<?php echo $row[7]; ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpro1" onblur="validar2(this.id)" required value=<?php echo $row[7]; ?>></div>
 	   		
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Empresa o dependencia beficiaria </h4></div>
@@ -553,7 +612,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 					<?php } ?>
 	   		</select></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub4" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
@@ -617,7 +676,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 				
 			<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub5" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="propo">
 	   			<option style="display: block;">Selecciona el estado</option>
@@ -691,7 +750,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 
 	   		<div class="div12"></div>	
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub6" onblur="validar2(this.id)" required value=<?php echo $row[9];?>></div>	
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="propo">
 	   		<option style="display: block;">Selecciona el proposito</option>
@@ -762,7 +821,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 
 			<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>	
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub7" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>	
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="propo">
 	   			<option style="display: block;">Selecciona el proposito</option>
@@ -844,7 +903,7 @@ $sql="SELECT produccionacademica.*, proposito.proposito, estadoactual.Estado, pa
 
 			<div class="div12"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de publicación</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" type="date" id="fecpub" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>	
+	   		<div class="div3"> <input style="width: 190px;" type="text" id="fecpub8" onblur="validar2(this.id)" required value=<?php echo $row[9] ?>></div>	
 	   		<div class="div1"></div><div class="div2"><h4>Propósito</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";

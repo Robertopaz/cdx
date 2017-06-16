@@ -9,7 +9,25 @@ $parametro=$_GET['p'];
 	$row = mysqli_fetch_row($resultado);
 /*Este archivo muestra el formulario para modificar el registro seleccionado en la seccion de consulta en el area "Estudios", utiliza como parametro(p) de busuqeda el id que envia la solicitud dentro de la URL por GET*/
 ?>
-<script src="js/funciones.js">
+<script>
+	$( function() {
+    $( "#fecini" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecfin" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#tit" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+</script>
 <script src="js/modificar.js">
 
 </script>
@@ -87,13 +105,13 @@ $parametro=$_GET['p'];
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de inicio de estudios</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="fecini"  value=<?php echo $row[7] ?>></div>	   		
+	   		<div class="div3"><input style="width: 190px;" type="text" id="fecini"  value=<?php echo $row[7] ?>></div>	   		
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de fin de estudios</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="fecfin"  value=<?php echo $row[8] ?>></div>
+	   		<div class="div3"><input style="width: 190px;" type="text" id="fecfin"  value=<?php echo $row[8] ?>></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de obtención del Título o Grado</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="tit"  value=<?php echo $row[9] ?>></div>	
+	   		<div class="div3"><input style="width: 190px;" type="text" id="tit"  value=<?php echo $row[9] ?>></div>	
 
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>

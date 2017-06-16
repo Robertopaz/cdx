@@ -7,8 +7,66 @@ include 'up.php';
 include 'conex.php';
 $con = Conectarse();
 ?>
-<script src="js/funciones.js"></script>
-<script src="js/produc.js"></script>
+
+<script>
+  $( function() {
+    $( "#fecpub" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub1" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub2" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub3" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub4" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub5" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub6" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub7" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpub8" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpro" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpro1" ).datepicker({
+      textFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+</script>
 
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -87,8 +145,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div4"><h4>Editorial</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input type="number" id="dela"></div>
-	   		<div class="div4"> <input type="number" id="ala"></div>
+	   		<div class="div4"><input  onkeypress="return valida(event)" type="text" id="dela"></div>
+	   		<div class="div4"> <input  onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="ed"></div>
 	   		<div class="div12"></div>	
 
@@ -97,9 +155,9 @@ $con = Conectarse();
 	   		<div class="div4"><h4>ISSN</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input type="number" id="vol"></div>	   		
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="vol"></div>	   		
 	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>	   		
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub"></div>	   		
 	   		<div class="div12"></div>
 
 	   		<div class="div4"></div> <div class="div4"><h4>Propósito</h4></div> <div class="div4"></div>
@@ -172,8 +230,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="revis"></div>
-	   		<div class="div4"> <input type="number" id="dela"></div>
-	   		<div class="div4"> <input type="number" id="ala"></div>	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
+	   		<div class="div4"> <input  onkeypress="return valida(event)" type="text" id="ala"></div>	
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Editorial</h4></div>
@@ -181,7 +239,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>ISSN</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>	
-	   		<div class="div4"><input type="number" id="vol"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="vol"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
 	   		<div class="div12"></div>
 
@@ -189,7 +247,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Propósito</h4></div>
 	   		<div class="div4"><h4>Dirección Eléctronica</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>	   		
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub1"></div>	   		
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
@@ -260,8 +318,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="revis"></div>
-	   		<div class="div4"> <input type="number" id="dela"></div>
-	   		<div class="div4"><input type="number" id="ala"></div>
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Editorial</h4></div>
@@ -269,7 +327,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Índice de registro de la revista</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>	
-	   		<div class="div4"><input type="number" id="vol"></div>
+	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="vol"></div>
 	   		<div class="div4"> <input type="text" id="ind"></div>
 	   		<div class="div12"></div>
 	   		
@@ -278,7 +336,7 @@ $con = Conectarse();
 	   		<div class="div4"<h4>Propósito</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>	   		
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub2"></div>	   		
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
@@ -347,7 +405,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><input style="width: 190px;" type="date" id="fecpro"></div>
+	   		<div class="div4"><input style="width: 190px;" type="text" id="fecpro"></div>
 	   		<div class="div12"></div>
 	   		
 	   		<div class="div6"><h4>Empresa o dependencia beficiaria </h4></div>
@@ -403,7 +461,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Pais</h4></div>
 	   		<div class="div4"><h4>Tiraje</h4></div>
 			<div class="div12"></div>
-	   		<div class="div4"><input style="width: 190px;" type="date" id="fecpub"></div>
+	   		<div class="div4"><input style="width: 190px;" type="text" id="fecpub3"></div>
 	   		<div class="div4"> <select style="width: 190px;" id="coun">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
@@ -441,8 +499,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><textarea type="text" id="titcap"></textarea> </div>
-	   		<div class="div4"> <input type="number" id="dela"></div>	   	
-	   		<div class="div4"> <input type="number" id="ala"></div>
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div12"></div>
@@ -499,7 +557,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"> <input style="width: 200px;" type="date" id="fecpro"></div>
+	   		<div class="div4"> <input style="width: 200px;" type="text" id="fecpro1"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Empresa o dependencia beficiaria </h4></div>
@@ -559,8 +617,8 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Edición </h4></div>
 	   		<div class="div4"><h4>Tiraje</h4></div>
 	   		<div class="div12"></div> 
-	   		<div class="div4"><input placeholder="" type="number" id="pag"></div>
-	   		<div class="div4"> <input type="number" id="edic"></div>
+	   		<div class="div4"><input placeholder="" onkeypress="return valida(event)" type="text" id="pag"></div>
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="edic"></div>
 			<div class="div4"><input placeholder="" type="text" id="tirj"></div>
 			<div class="div12"></div>
 			
@@ -580,7 +638,7 @@ $con = Conectarse();
 						    	}?>> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub4"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"></div><div class="div4"><h4>Propósito</h4></div><div class="div4"></div>
@@ -650,7 +708,7 @@ $con = Conectarse();
 	   		<div class="div6"><h4>Fecha de publicación</h4></div>
 	   		<div class="div6"><h4>Propósito</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"> <input style="width: 300px;" type="date" id="fecpub"></div>
+	   		<div class="div6"> <input style="width: 300px;" type="text" id="fecpub5"></div>
 	   		<div class="div6"><select style="width: 300px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
@@ -726,15 +784,15 @@ $con = Conectarse();
 				<?php } ?>
 	   		</select></div>
 			 <div class="div4"><input placeholder="" type="text" id="city"></div>
-	   		<div class="div4"> <input type="number" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div4"><h4>Propósito</h4></div>
 	   		<div class="div12"></div>	
-	   		<div class="div4"> <input type="number" id="ala"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub6"></div>	
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
@@ -810,15 +868,15 @@ $con = Conectarse();
 				<?php } ?>
 	   		</select></div>
 			<div class="div4"><input placeholder="" type="text" id="city"></div>
-	   		<div class="div4"> <input type="number" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div4"><h4>Propósito</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input type="number" id="ala"></div>
-	   		<div class="div4"> <input type="date" style="width: 190px;" type="text" id="fecpub"></div>	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
+	   		<div class="div4"> <input type="text" style="width: 190px;" type="text" id="fecpub7"></div>	
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
@@ -903,7 +961,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Propósito</h4></div>
 			 <div class="div12"></div>
 			 <div class="div4"><input placeholder="" type="text" id="user"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="date" id="fecpub"></div>	
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub8"></div>	
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);

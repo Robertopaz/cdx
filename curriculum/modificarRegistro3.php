@@ -9,6 +9,15 @@ echo $sql="SELECT premio.* FROM premio  WHERE cvePremio=".$parametro;
 	$row = mysqli_fetch_row($resultado);
 	/*Este archivo muestra el formulario para modificar el registro seleccionado en la seccion de consulta en el area "Premios y distinciones", utiliza como parametro(p) de busuqeda el id que envia la solicitud dentro de la URL por GET*/
 ?>
+<script>
+  $( function() {
+    $( "#fecob" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
 <script src="js/modificar.js">
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
@@ -33,7 +42,7 @@ echo $sql="SELECT premio.* FROM premio  WHERE cvePremio=".$parametro;
 	   		<div class="div3"> <textarea id="motivo" ><?php echo $row[4] ?></textarea></div>	   		
 	   		<div class="div12"></div>
 	   		<div class="div2"></div><div class="div3"><h4>Fecha de Obtención</h4></div>
-	   		<div class="div3"> <input  style="width: 190px;" type="date" id="fecob" value=<?php echo $row[5] ?>></div>
+	   		<div class="div3"> <input  style="width: 190px;" type="text" id="fecob" value=<?php echo $row[5] ?>></div>
 	   		<div class="div12"></div>
 	   		<div class="div2"></div><div class="div3"><h4>Institución Otorgante</h4></div>
 	   		<div class="div3">

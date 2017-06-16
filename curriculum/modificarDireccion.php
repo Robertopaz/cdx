@@ -9,7 +9,26 @@ $parametro=$_GET['p'];
  	$resultado=mysqli_query($con,$sql);
 	$row = mysqli_fetch_row($resultado);
 ?>
-<script src="js/funciones.js">
+<script src="js/modificar.js"></script>
+<script>
+	$( function() {
+    $( "#fecini" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecter" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecsni" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -42,11 +61,11 @@ $parametro=$_GET['p'];
 					<?php } ?>
 	   		</select></div>	   		
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de inicio</h4></div>
-	   		<div class="div3"><input type="date" id="fecini" value=<?php echo $row[7] ?>></div>
+	   		<div class="div3"><input type="text" id="fecini" value=<?php echo $row[7] ?>></div>
 	   		
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de termino</h4></div>
-	   		<div class="div3"><input type="date" id="fecter" value=<?php echo $row[8]; ?>></div>	   		
+	   		<div class="div3"><input type="text" id="fecter" value=<?php echo $row[8]; ?>></div>	   		
 	   		<div class="div1"></div><div class="div2"><h4>No. alumnos</h4></div>
 	   		<div class="div3"><input type="text" id="alumno" value=<?php echo $row[9] ?>></div>
 	   		

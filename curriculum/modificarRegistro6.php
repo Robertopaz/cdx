@@ -9,7 +9,21 @@ $parametro=$_GET['p'];
 	$resultado=mysqli_query($con,$sql);
 	$row = mysqli_fetch_row($resultado);
 ?>
-<script src="js/funciones.js">
+<script>
+  $( function() {
+    $( "#feci" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecf" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+  <script src="js/modificar.js">
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -61,11 +75,11 @@ $parametro=$_GET['p'];
 	   		<div class="div12"></div>
 	   		
 	   		<div class="div2"></div><div class="div3"><h4>Fecha de Inicio</h4></div>
-	   		<div class="div3"><input type="date" id="feci" style="width: 190px;" value=<?php echo $row[4] ?>></div>
+	   		<div class="div3"><input type="text" id="feci" style="width: 190px;" value=<?php echo $row[4] ?>></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div2"></div><div class="div3"><h4>Fecha de Fin</h4></div>
-	   		<div class="div3"><input type="date" id="fecf" style="width: 190px;" value=<?php echo $row[5] ?>></div>
+	   		<div class="div3"><input type="text" id="fecf" style="width: 190px;" value=<?php echo $row[5] ?>></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div2"></div><div class="div3"><h4>Tipo de Tutoria</h4></div>

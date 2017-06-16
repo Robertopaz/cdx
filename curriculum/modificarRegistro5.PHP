@@ -9,7 +9,21 @@ $parametro=$_GET['p'];
 	$resultado=mysqli_query($con,$sql);
 	$row = mysqli_fetch_row($resultado);
 ?>
-<script src="js/funciones.js">
+<script>
+  $( function() {
+    $( "#fecip" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecfp" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+<script src="js/modifica.js">
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -32,11 +46,11 @@ $parametro=$_GET['p'];
 	   		<div class="div3"><h4>Nombre del patrocinador</h4></div>
 	   		<div class="div3"><input placeholder="" type="text" id="pat" onblur="validar2(this.id)" required value=<?php echo $row[3] ?>></div>	   		
 	   		<div class="div3"><h4>Fecha de inicio del proyecto</h4></div>
-	   		<div class="div3"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecip" value=<?php echo $row[4] ?>></div>
+	   		<div class="div3"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="text" id="fecip" value=<?php echo $row[4] ?>></div>
 	   		<div class="div12"></div>
 	   		
 	   		<div class="div3"><h4>Fecha de fin del proyecto</h4></div>
-	   		<div class="div3"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecfp" value=<?php echo $row[5] ?>></div>
+	   		<div class="div3"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="text" id="fecfp" value=<?php echo $row[5] ?>></div>
 	   		<div class="div3"><h4>Patrocinador interno</h4></div>
 	   		<div class="div3"><select style="width: 190px;" id="patroc" onblur="validar2(this.id)">
 	   			<option value="1"<?php if($row[6]==1){echo "selected";} ?>>Si</option>

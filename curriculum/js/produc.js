@@ -49,8 +49,10 @@ function articulos(form){
 	editor=form.ed.value;
 	volum=form.vol.value;
 	isn=form.issn.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1=form.fecpub.value;
 	proposi=form.propo.value;
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag = "art";
 
@@ -119,10 +121,12 @@ function arbitrario(form){
 	editor=form.edi.value;
 	volum=form.vol.value;
 	isn=form.issn.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1=form.fecpub1.value;
 	proposi=form.propo.value;
 	descrip=form.descr.value; 		//se agregaron
 	direlecart=form.direlec.value;	//se agregaron
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag = "arb";
 
@@ -197,11 +201,13 @@ function indexada(form){
 	editor=form.edi.value;
 	volum=form.vol.value;
 	isn=form.issn.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1=form.fecpub2.value;
 	proposi=form.propo.value;
 	descrip=form.descr.value;
 	direlecart=form.direlec.value;
 	indi=form.ind.value; //se agrego
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag="indexa";
 
@@ -272,8 +278,10 @@ function asesoria(form){
 	estproy=form.estu.value;
 	alca=form.alc.value;
 	empdep=form.emp.value;
-	fechap=form.fecpro.value;
+	fechap1=form.fecpro.value;
 	otropart=form.part.value;
+
+	fechap = fechap1.split("/").reverse().join("/");
 
 	var flag="ase";
 
@@ -326,7 +334,7 @@ function caplibro(form){
 	estadoa=form.sta.value;
 	edit=form.edi.value;
 	edici=form.edic.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 = form.fecpub3.value;
 	pais=form.coun.value;
 	tiraj=form.tirj.value;
 	issbn=form.isbn.value;
@@ -334,6 +342,8 @@ function caplibro(form){
 	titcapi=form.titcap.value;
 	delapag=form.dela.value;
 	alapag=form.ala.value;
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag = "capdlibro";
 
@@ -413,9 +423,11 @@ function consultoria(form){
 	estproy=form.estu.value;
 	alca=form.alc.value;
 	empdep=form.emp.value;
-	fechap=form.fecpro.value;
+	fechap1 = form.fecpro1.value;
 	otropart=form.part.value;
 	benef=form.bene.value;
+
+	fechap = fechap1.split("/").reverse().join("/");
 
 	var flag="consul";
 
@@ -474,13 +486,15 @@ function libro(form){
 	estadoa=form.sta.value;
 	edit=form.edi.value;
 	edici=form.edic.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 = form.fecpub4.value;
 	pais=form.coun.value;
 	tiraj=form.tirj.value;
 	issbn=form.isbn.value;
 	proposi=form.propo.value;
 	partici=form.parti.value;
 	pagis=form.pag.value;
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag="lib";
 
@@ -551,8 +565,10 @@ function matap(form){
 	descrip=form.descr.value;
 	instben=form.insot.value;
 	pais=form.coun.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 = form.fecpub5.value;
 	proposi=form.propo.value;
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag="matsup";
 
@@ -610,8 +626,10 @@ function memos(form){
 	dirr=form.city.value;
 	delapag=form.dela.value;
 	alapag=form.ala.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 = form.fecpub6.value;
 	proposi=form.propo.value;
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag="mem";
 
@@ -682,9 +700,11 @@ function extenso(form){
 	dirr=form.city.value;
 	delapag=form.dela.value;
 	alapag=form.ala.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 =form.fecpub7.value;
 	proposi=form.propo.value;
 	archiv=form.fil.value; // este solo se agrega al ajax
+
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag="memext";
 	if(cprofesor!="0"){		
@@ -770,8 +790,9 @@ function patente (form){
 	pais=form.coun.value;
 	numreg=form.num.value;
 	usua=form.user.value;
-	fecpubli=form.fecpub.value;
+	fecpubli1 = form.fecpub8.value;
 	proposi=form.propo.value;
+	fecpubli = fecpubli1.split("/").reverse().join("/");
 
 	var flag = "pate";
 
@@ -821,6 +842,4 @@ function patente (form){
 	}else{
 		verModal('grande','','Ok', 'Verifica tu clave de maestro' );
 	}
-
-
 }

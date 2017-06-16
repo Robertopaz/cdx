@@ -9,7 +9,22 @@ $parametro=$_GET['p'];
 	$row = mysqli_fetch_row($resultado);
 	/*Este archivo muestra el formulario para modificar el registro seleccionado en la seccion de consulta en el area "Laboral", utiliza como parametro(p) de busuqeda el id que envia la solicitud dentro de la URL por GET*/
 ?>
-<script src="js/funciones.js"></script>
+<script src="js/modificar.js"></script>
+<script>
+  $( function() {
+    $( "#fecini" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecfin" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
+  
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
 	<div id="contenido">
@@ -55,11 +70,11 @@ $parametro=$_GET['p'];
 	   		<div class="div2"><h4>Unidad académica</h4></div>
 	   		<div class="div3"><input type="text" id="uni" value=<?php echo $row[7] ?>></div>	   		
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de inicio del contrato</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="fecini" value=<?php echo $row[8] ?>></div>
+	   		<div class="div3"><input style="width: 190px;" type="text" id="fecini" value=<?php echo $row[8] ?>></div>
 	   		
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de fin del contrato</h4></div>
-	   		<div class="div3"><input style="width: 190px;"  type="date" id="fecfin" value=<?php echo $row[9] ?>></div>
+	   		<div class="div3"><input style="width: 190px;"  type="text" id="fecfin" value=<?php echo $row[9] ?>></div>
 	   		<div class="div1"></div><div class="div2"><h4>Cronología</h4></div>
 	   		<div class="div3"><input  type="text" name="crono" value=<?php echo $row[10] ?>></div>
 

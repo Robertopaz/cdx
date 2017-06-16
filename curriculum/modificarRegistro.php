@@ -9,7 +9,25 @@ $parametro=$_GET['p'];
 	$row = mysqli_fetch_row($resultado);
 	/*Este archivo muestra el formulario para modificar el registro seleccionado en la seccion de consulta en el area "Gestion academica", utiliza como parametro(p) de busuqeda el id que envia la solicitud dentro de la URL por GET*/
 ?>
-<script src="js/funciones.js">
+<script>
+    $( function() {
+    $( "#feciges" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fectges" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecuinfo" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+
 </script>
 <script src="js/modificar.js">
 </script>
@@ -77,13 +95,13 @@ $parametro=$_GET['p'];
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de inicio<br>de gestión</h4></div>
-	   		<div class="div3"><input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="feciges"  required value=<?php echo $row[9] ?>></div>
+	   		<div class="div3"><input style="width: 190px;" placeholder="aaaa/mm/dd" type="text" id="feciges"  required value=<?php echo $row[9] ?>></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de termino<br>de gestión</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="fectges"  required="" value=<?php echo $row[10] ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="text" id="fectges"  required="" value=<?php echo $row[10] ?>></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Fecha de ultimo informe</h4></div>
-	   		<div class="div3"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="date" id="fecuinfo"  value=<?php echo $row[11] ?>></div>
+	   		<div class="div3"> <input style="width: 190px;" placeholder="aaaa/mm/dd" type="text" id="fecuinfo"  value=<?php echo $row[11] ?>></div>
 	   		<div class="div1"></div><div class="div2"><h4>Horas a la semana</h4></div>
 	   		<div class="div3"><input placeholder="numero" type="text" id="hra"  required value=<?php echo $row[12] ?>></div>
 	   		<div class="div12"></div>

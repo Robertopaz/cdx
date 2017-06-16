@@ -39,7 +39,7 @@ $con = Conectarse();
 
 	   		<div class="div4"><h4>Horas</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="hrs"></div>
+	   		<div class="div4"><input placeholder="solo número" onkeypress="return valida(event)" type="text" id="hrs"></div>
 	   		
 	   		
 	   		<div class="div12"></div>

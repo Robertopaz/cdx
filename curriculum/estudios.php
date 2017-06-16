@@ -7,7 +7,24 @@ include 'up.php';
 include 'conex.php';
 $con = Conectarse();
 ?>
-<script src="js/funciones.js">
+<script>
+	$( function() {
+    $( "#fecini" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecfin" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#tit" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
 </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
@@ -17,10 +34,10 @@ $con = Conectarse();
 			<h1>Estudios realizados</h1> </div>
 		<div class="div12"></div>
 	    <div class="div12"></div>
-	   	
-	   	
+
+
 	   	<form onsubmit="return false">
-	   		
+
 	   		<div class="div4"><h4>Clave de profesor</h4></div>
 	   		<div class="div4"><h4>Nivel de estudios</h4></div>
 	   		<div class="div4"><h4>Estudios en</h4></div>
@@ -57,19 +74,19 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><input type="text" id="dis" onblur="validar2(this.id)"></div>	   		
+	   		<div class="div4"><input type="text" id="dis" onblur="validar2(this.id)"></div>
 	   		<div class="div4"><select style="width: 200px;" id="coun" onblur="validar2(this.id)">
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
-	   		</select></div>	   		
+	   		</select></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div4"><h4>Institución otorgante</h4></div>
 	   		<div class="div4"><h4 id="nomInst" style="display: none">Institución Otorgante no<br>considerada en el catálogo</h4></div>
 	   		<div class="div4"><h4>Fecha de inicio de estudios</h4></div>
@@ -82,18 +99,18 @@ $con = Conectarse();
 					<?php } ?>
 				</select></div>
 	   		<div class="div4"><input type="text" id="otra" onblur="validar2(this.id)" style="display: none"></div>
-	   		<div class="div4"><input style="width: 190px;" type="date" id="fecini" onblur="validar2(this.id)"></div><div class="div12"></div>
+	   		<div class="div4"><input style="width: 190px;" type="text" id="fecini" onblur="validar2(this.id)"></div><div class="div12"></div>
 
 	   		<div class="div6"><h4>Fecha de fin de estudios</h4></div>
 	   		<div class="div6"><h4>Fecha de obtención del título o grado</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"><input style="width: 300px;" type="date" id="fecfin" onblur="validar2(this.id)"></div>
-	   		<div class="div6"><input style="width: 300px;" type="date" id="tit" onblur="validar2(this.id)"></div>
+	   		<div class="div6"><input style="width: 300px;" type="text" id="fecfin" onblur="validar2(this.id)"></div>
+	   		<div class="div6"><input style="width: 300px;" type="text" id="tit" onblur="validar2(this.id)"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="study(this.form)">Guardar</button>   	
+	   	<button class="div1 menta" id="boton" onclick="study(this.form)">Guardar</button>
 	   	</form>
 	   	<div class="div12"></div>
 	</div>

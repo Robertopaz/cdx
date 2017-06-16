@@ -8,8 +8,28 @@ $parametro=$_GET['p'];
 	$resultado=mysqli_query($con,$sql);
 	$row = mysqli_fetch_row($resultado);
 ?>
-<script src="js/funciones.js">
-</script>
+<script src="js/modificar.js"></script>
+<script>
+  $( function() {
+    $( "#birth" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecpromep" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#fecsni" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+ </script>
+
+
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
 	<div id="contenido">
@@ -68,7 +88,7 @@ $parametro=$_GET['p'];
 	   		<div class="div2"><h4>Entidad de nacimiento</h4></div>
 	   		<div class="div3"><input type="text" id="entidad" value="<?php echo $row[4] ?>"></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de nacimiento</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" name="birth" value="<?php echo $row[5] ?>"></div>
+	   		<div class="div3"><input style="width: 190px;" type="text" name="birth" value="<?php echo $row[5] ?>"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Teléfono</h4></div>
@@ -90,7 +110,7 @@ $parametro=$_GET['p'];
 	   			<option value="0" <?php if($row[10]==0){echo "Selected";} ?>>No</option>
 	   		</select></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de obtención de PROMEP</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="fecpromep"  value="<?php echo $row[11] ?>"></div>
+	   		<div class="div3"><input style="width: 190px;" type="text" id="fecpromep"  value="<?php echo $row[11] ?>"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div2"><h4>Tiene SNI</h4></div>
@@ -100,7 +120,7 @@ $parametro=$_GET['p'];
 	   			<option value="0" <?php if($row[12]==0){echo "Selected";} ?>>No</option>
 	   		</select></div>
 	   		<div class="div1"></div><div class="div2"><h4>Fecha de ontención de SNI</h4></div>
-	   		<div class="div3"><input style="width: 190px;" type="date" id="fecsni"  value="<?php echo $row[12] ?>"></div>
+	   		<div class="div3"><input style="width: 190px;" type="text" id="fecsni"  value="<?php echo $row[12] ?>"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>

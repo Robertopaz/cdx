@@ -9,8 +9,15 @@ include 'conex.php';
 $con = Conectarse();
 
 ?>
-<script src="js/funciones.js">
-</script>
+<script>
+  $( function() {
+    $( "#fecob" ).datepicker({
+      dateFormat: 'dd/mm/yy',
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+  </script>
 	<div id="bg-negro" onclick="cerrar()"></div>
 	<div id="modal"></div>
 	<div id="contenido">
@@ -44,7 +51,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Institución Otorgante</h4></div>
 	   		<div class="div4" id="nuevaT" style="display: none"><h4>Nombre de la Institución</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input placeholder="aaaa/mm/dd" style="width: 190px;" type="date" id="fecob"></div>
+	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecob"></div>
 	   		<div class="div4">
 	   			<select id="insot" style="width: 190px;" onchange="habilitar()">
 	   				<?php $qri = "SELECT nombreInst AS nombre, cveInstitucion AS clave FROM institucion";
