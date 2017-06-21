@@ -515,11 +515,12 @@ function study(form){
 	oher=form.otra.value;
 	finicio1=form.fecini.value;
 	ffin1=form.fecfin.value;
-	obtencion=form.tit.value;
+	obtencion1=form.tit.value;
 	nombreOtraInst = form.otra.value;
 
 	finicio = finicio1.split("/").reverse().join("/");
 	ffin = ffin1.split("/").reverse().join("/");
+	obtencion = obtencion1.split("/").reverse.join("/");
 	var flag="estud";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 	
 	//validar las fechas

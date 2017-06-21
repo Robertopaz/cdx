@@ -445,7 +445,7 @@
 
 	elseif ($flag=="Direccion-individualizada") {//Esta condicional muestra en interfaz todas las direcciones individualizadas 
 
-		echo $sql="SELECT direccionindividualizada.*, institucion.nombreInst, nivelestudio.estudio, estadoactual.Estado, date_format(fechaInicio, '%d-%m-%Y') as inicio, date_format(fechaFin, '%d-%m-%Y') as fin FROM direccionindividualizada INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado WHERE cveProfesor='".$parametro."' ;";
+		/*echo*/ $sql="SELECT direccionindividualizada.*, institucion.nombreInst, nivelestudio.estudio, estadoactual.Estado, date_format(fechaInicio, '%d-%m-%Y') as inicio, date_format(fechaFin, '%d-%m-%Y') as fin FROM direccionindividualizada INNER JOIN institucion on institucion.cveInstitucion=direccionindividualizada.cveInstitucion INNER JOIN nivelestudio on nivelestudio.idEstudio=direccionindividualizada.idEstudio INNER JOIN estadoactual on estadoactual.idEstado=direccionindividualizada.idEstado WHERE cveProfesor='".$parametro."' ;";
 		$resultado=mysqli_query($con,$sql);
 		$rowCount=mysqli_num_rows($resultado);
 		echo "<h2>Dirección Individualizada</h2>";
