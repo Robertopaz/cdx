@@ -46,7 +46,7 @@ function busquedaEliminar() {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		alert(respuesta)
+	  		// alert(respuesta)
 	  		cuerpoConsulta.innerHTML=profesorHtml+articulosHtml;
 	  	}
 	  }
@@ -56,7 +56,7 @@ function busquedaEliminar() {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		alert(respuesta);
+	  		// alert(respuesta);
 
 	  	}
 	  }
@@ -143,7 +143,7 @@ function busquedaEliminar() {
 	  }
 	}
 	else if (valor=="Libros") {
-		
+
 		enviar.send('flag='+valor+"&p="+parametro);
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
@@ -197,7 +197,7 @@ function busquedaEliminar() {
 	  		cuerpoConsulta.innerHTML=respuesta;
 	  	}
 	  }
-	}       
+	}
 	else if (valor=="Tutoria") {
 		enviar.send('flag='+valor+'&p='+parametro);
 		enviar.onreadystatechange = function(){
@@ -218,7 +218,7 @@ function eliminar(idEliminar) {
 	parametro=document.getElementById('cve-nom').value;
 	cuerpoConsulta=document.getElementById('cuerpoConsulta');
 
-	if(confirm("Seguro que desea continuar?")){
+	if(confirm("¿Seguro que desea continuar?")){
 
 	enviar=new XMLHttpRequest;
 	enviar.open('POST','eliminarElementosCurriculum.php');
@@ -235,7 +235,7 @@ function eliminar(idEliminar) {
 	  		}
 	  		else{
 	  			cargarProfesores()
-	  			alert(respuesta)
+	  			// alert(respuesta)
 	  		}
 	  }
 	}
@@ -243,7 +243,7 @@ function eliminar(idEliminar) {
 }
 
 	else if (valor=="Articulos") {
-		
+
 		enviar.send('flag='+valor+"&p="+idEliminar);
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
@@ -380,7 +380,7 @@ function eliminar(idEliminar) {
 	  		cuerpoConsulta.innerHTML=respuesta;
 	  	}
 	  }
-	}       
+	}
 	else if (valor=="Tutoria") {
 		enviar.send('flag='+valor+'&p='+idEliminar);
 		enviar.onreadystatechange = function(){
