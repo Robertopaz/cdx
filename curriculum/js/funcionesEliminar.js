@@ -230,6 +230,7 @@ function eliminar(idEliminar) {
 	  		respuesta=enviar.responseText;
 	  		if (respuesta=="Ok") {
 	  			alert("Entro")
+
 	  			cargarProfesores()
 	  		}
 	  		else{
@@ -411,5 +412,5 @@ function cargarProfesores(){
 	  		listaProfesores.innerHTML=respuesta
 	  	}
 	  }
-
+	location.reload()
 }
