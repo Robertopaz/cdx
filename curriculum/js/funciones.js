@@ -59,7 +59,7 @@ function Validacion() {
 	  		else{
 	  			verModal('grande','','Ok', 'VERFICA TUS DATOS' );
 	  		}
-	  	}	  
+	  	}
 	}
 }
 
@@ -76,6 +76,7 @@ function elegir(){
 		document.getElementById('capitulolib').style.display="none"
 		document.getElementById('consu').style.display="none"
 		document.getElementById('book').style.display="none"
+		document.getElementById('apoyo').style.display="none"
 		document.getElementById('mem').style.display="none"
 		document.getElementById('ext').style.display="none"
 		document.getElementById('pate').style.display="none"
@@ -95,6 +96,7 @@ function elegir(){
 		document.getElementById('inde').style.display="block"
 		document.getElementById('art').style.display="none"
 		document.getElementById('arb').style.display="none"
+		document.getElementById('ase').style.display="none"
 		document.getElementById('capitulolib').style.display="none"
 		document.getElementById('consu').style.display="none"
 		document.getElementById('book').style.display="none"
@@ -114,7 +116,7 @@ function elegir(){
 		document.getElementById('mem').style.display="none"
 		document.getElementById('ext').style.display="none"
 		document.getElementById('pate').style.display="none"
-	}if(elemento=='Capítulo de libro'){	
+	}if(elemento=='Capítulo de libro'){
 		document.getElementById('capitulolib').style.display="block"
 		document.getElementById('ase').style.display="none"
 		document.getElementById('arb').style.display="none"
@@ -167,7 +169,7 @@ function elegir(){
 		document.getElementById('pate').style.display="none"
 	}if(elemento=='Memorias'){
 		//alert(elemento);
-		document.getElementById('mem').style.display="block" 
+		document.getElementById('mem').style.display="block"
 		document.getElementById('apoyo').style.display="none"
 		document.getElementById('book').style.display="none"
 		document.getElementById('ase').style.display="none"
@@ -192,7 +194,7 @@ function elegir(){
 		document.getElementById('mem').style.display="none"
 		document.getElementById('pate').style.display="none"
 	}if(elemento=='Patente'){
-		//alert(elemento);		
+		//alert(elemento);
 		document.getElementById('pate').style.display="block"
 		document.getElementById('apoyo').style.display="none"
 		document.getElementById('book').style.display="none"
@@ -288,7 +290,7 @@ function alta(form){
 						  		}
 							}else{
 								verModal('grande','','Ok', 'Verifica el genero que seleccionaste' );
-							}							
+							}
 						}else{
 							verModal('grande','','Ok', 'Verifica tu telefono principal' );
 						}
@@ -389,7 +391,7 @@ function direc(form){
 	institucion= form.inst.value;
 	nombreOtraInst = form.nueva.value;
 	var flag = "direcc";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
-	
+
 	fechai = fechai1.split("/").reverse().join("/")
 	fechat = fechat1.split("/").reverse().join("/")
 	//validacion de fecha
@@ -416,7 +418,7 @@ function direc(form){
 						  			document.getElementById("fecter").value="";
 						  			document.getElementById("alumno").value = "";
 						  			document.getElementById("state").value = "Selecciona...";
-						  			document.getElementById("inst").value = "Selecciona...";		  			
+						  			document.getElementById("inst").value = "Selecciona...";
 								}else{
 									verModal('grande','','Ok', respuesta );
 								}
@@ -433,7 +435,7 @@ function direc(form){
 			}
 		}else{
 			verModal('grande','','Ok','Verifica el nombre de la tesis')
-		}	
+		}
 	}else{
 		verModal('grande','','Ok', 'Verifica la clave del profesor' );
 	}
@@ -454,7 +456,7 @@ function doce(form){
 	fechai = fechai1.split("/").reverse().join("/");
 	var flag = "docencia";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
 
-	if(profesor!="0"){//validacion de clave de profesor		
+	if(profesor!="0"){//validacion de clave de profesor
 			if(nivel!="0"){//validacion de nivel de estudio
 				if(depen!="0"){//validacion de dependencia
 					if(ncurso!="0"){//validacion de nombre de curso
@@ -480,7 +482,7 @@ function doce(form){
 										document.getElementById("durar").value = "";
 										document.getElementById("mesase").value = "";
 										document.getElementById("hracurso").value="";
-										
+
 									}else{
 										verModal('grande','','Ok', respuesta );
 									}
@@ -497,7 +499,7 @@ function doce(form){
 				}
 			}else{
 				verModal('grande','','Ok', 'Verifica el nivel de estudio' );
-			}		
+			}
 	}else{
 		verModal('grande','','Ok', 'Verifica la clave de profesor' );
 	}
@@ -522,7 +524,7 @@ function study(form){
 	ffin = ffin1.split("/").reverse().join("/");
 	obtencion = obtencion1.split("/").reverse.join("/");
 	var flag="estud";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
-	
+
 	//validar las fechas
 
 	if(profesor!="0"){//validacion de clave de profesor
@@ -555,7 +557,7 @@ function study(form){
 							  			document.getElementById("fecini").value = "";
 							  			document.getElementById("fecfin").value="";
 							  			document.getElementById("tit").value="";
-							  			
+
 										}else{
 											verModal('grande','','Ok', respuesta );
 										}
@@ -602,7 +604,7 @@ function gestionacademica(form){
 	fectges = fectges1.split("/").reverse().join("/");
 	fecinfo = fecinfo1.split("/").reverse().join("/");
 	var flag= "gestion";//bandera que se manda por metodo post a el documento datos.php, para poder entrar en la insercion correcta
-	
+
 	if(profesor!="0"){
 		if(tip!="2"){
 			if(carg!=""){
@@ -669,7 +671,7 @@ function aplicacion(form){
 	acti=form.act.value;
 	horas=form.hrs.value;
 	var flag= "app";
-	
+
 	if(profesor!="0"){
 		if(camp!=""){
 			enviar=new XMLHttpRequest;
@@ -693,7 +695,7 @@ function aplicacion(form){
 			}
 		}else{
 			verModal('grande','','Ok', 'Verifica "campo"' );
-		}		
+		}
 	}else{
 		verModal('grande','','Ok', 'Verifica la clave de maestro' );
 	}
@@ -710,7 +712,7 @@ function premios(form){
 
 	var flag="premi";
 
-	if(clva!="0"){		
+	if(clva!="0"){
 		if(prem!=""){
 			if(obt!=""){
 				if(inst!="0"){
@@ -727,7 +729,7 @@ function premios(form){
 								document.getElementById("premio").value = " ";
 								document.getElementById("motivo").value = " ";
 								document.getElementById("fecob").value = " ";
-								document.getElementById("insot").value = "Selecciona la institución";	  			
+								document.getElementById("insot").value = "Selecciona la institución";
 							}else{
 								verModal('grande','','Ok', respuesta );
 							}
@@ -764,7 +766,7 @@ function investigacion(form){
 	fecip = fecip1.split("/").reverse().join("/");
 	fecfp = fecfp1.split("/").reverse().join("/");
 
-	if(prof!="0"){		
+	if(prof!="0"){
 		if(titu!=""){
 			if(nompat!=""){
 				if(fecip!=""){
@@ -789,7 +791,7 @@ function investigacion(form){
 								  			document.getElementById("tit").value = " ";
 								  			document.getElementById("pat").value = " ";
 								  			document.getElementById("fecip").value = " ";
-								  			document.getElementById("fecfp").value = " ";	  			
+								  			document.getElementById("fecfp").value = " ";
 								  			document.getElementById("patroc").value = "Tipo de patrocinador";
 								  			document.getElementById("inves").value = " ";
 								  			document.getElementById("alum").value = " ";
@@ -838,7 +840,7 @@ function tutorias (form){
 	fecfn = fecfn1.split("/").reverse().join("/");
 	var flag = "tutoria";
 
-	if(clav!="0"){		
+	if(clav!="0"){
 		if(alum!=""){
 			if(niv!="0"){
 				if(pro!="0"){
@@ -861,7 +863,7 @@ function tutorias (form){
 							  			document.getElementById("alu").value = " ";
 							  			document.getElementById("nil").value = "Selecciona el nivel";
 							  			document.getElementById("prog").value = "Selecciona el programa";
-							  			document.getElementById("feci").value = " ";	  			
+							  			document.getElementById("feci").value = " ";
 							  			document.getElementById("term").value = "Selecciona la opción";
 							  			document.getElementById("fecf").value = " ";
 							  			document.getElementById("tipo").value = " ";
@@ -889,4 +891,3 @@ function tutorias (form){
 		verModal('grande','','Ok', 'Verifica tus datos' );
 	}
 }
-

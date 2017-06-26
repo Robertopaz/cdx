@@ -10,58 +10,13 @@ $con = Conectarse();
 
 <script>
   $( function() {
-    $( "#fecpub" ).datepicker({
-      textFormat: 'dd/mm/yy',
+    $( "input.pub" ).datepicker({
+      dateFormat: 'dd/mm/yy',
       changeMonth: true,
       changeYear: true
     });
-    $( "#fecpub1" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub2" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub3" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub4" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub5" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub6" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub7" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpub8" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpro" ).datepicker({
-      textFormat: 'dd/mm/yy',
-      changeMonth: true,
-      changeYear: true
-    });
-    $( "#fecpro1" ).datepicker({
-      textFormat: 'dd/mm/yy',
+    $( "input.pro" ).datepicker({
+      dateFormat: 'dd/mm/yy',
       changeMonth: true,
       changeYear: true
     });
@@ -91,13 +46,13 @@ $con = Conectarse();
 	   			<option>Memorias en extenso</option>
 	   			<option>Patente</option>
 	   	</select> </div></form>
-	   	
+
 	   	<div class="div12"></div>
-	   	
+
 
 	   	<!--     ARTICULO      -->
-	   	<form onsubmit="return false" id="art" style="display: none;">
-	   		<div class="div5"></div><div class="div3"><h3>Artículo</h3></div>	   			
+	   	 <form onsubmit="return false" id="art" style="display: none;">
+	   		<div class="div5"></div><div class="div3"><h3>Artículo</h3></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Clave de profesor</h4></div>
@@ -123,7 +78,7 @@ $con = Conectarse();
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 					  $resul=mysqli_query($con,$qri);
-					  while($row1 = $resul->fetch_object()){?>						
+					  while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
@@ -132,7 +87,7 @@ $con = Conectarse();
 				<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-						<option value="<?php echo $row1->clave;?>" 
+						<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -148,16 +103,16 @@ $con = Conectarse();
 	   		<div class="div4"><input  onkeypress="return valida(event)" type="text" id="dela"></div>
 	   		<div class="div4"> <input  onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="ed"></div>
-	   		<div class="div12"></div>	
+	   		<div class="div12"></div>
 
-	   		
+
 	   		<div class="div4"><h4>Volumen</h4></div>
 	   		<div class="div4"><h4>ISSN</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="vol"></div>	   		
-	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub"></div>	   		
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="vol"></div>
+	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>
+	   		<div class="div4"> <input type="text" class="pub" id="fecpub"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"></div> <div class="div4"><h4>Propósito</h4></div> <div class="div4"></div>
@@ -167,15 +122,15 @@ $con = Conectarse();
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
-						
+
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div><div class="div4>"></div>  
+	   		</select></div><div class="div4>"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="articulos(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="articulos(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- ARTICULO ARBITRADO -->
@@ -195,10 +150,10 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>	
+	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="tit"></textarea></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div4"><h4>Estado Actual</h4></div>
 	   		<div class="div4"><h4>Descripción </h4></div>
 	   		<div class="div4"><h4>Pais</h4></div>
@@ -207,17 +162,17 @@ $con = Conectarse();
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 					  $resul=mysqli_query($con,$qri);
-					  while($row1 = $resul->fetch_object()){?>						
+					  while($row1 = $resul->fetch_object()){?>
 					<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
-	   		</select></div>	   		
+	   		</select></div>
 	   		<div class="div4"><textarea type="text" id="descr"></textarea></div>
 	   		<div class="div4"> <select style="width: 190px;" id="coun">
 	   			<option style="display: none">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -231,23 +186,23 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" type="text" id="revis"></div>
 	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
-	   		<div class="div4"> <input  onkeypress="return valida(event)" type="text" id="ala"></div>	
+	   		<div class="div4"> <input  onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Editorial</h4></div>
 	   		<div class="div4"><h4>Volumen</h4></div>
 	   		<div class="div4"><h4>ISSN</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>	
+	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>
 	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="vol"></div>
-	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
+	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div4"><h4>Propósito</h4></div>
 	   		<div class="div4"><h4>Dirección Eléctronica</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub1"></div>	   		
+	   		<div class="div4"> <input style="width: 190px;" type="text" class="pub" id="fecpub1"></div>
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
@@ -262,7 +217,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="arbitrario(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="arbitrario(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- ARTICULO REVISTA INDEXADA -->
@@ -295,17 +250,17 @@ $con = Conectarse();
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 							  $resul=mysqli_query($con,$qri);
-						while($row1 = $resul->fetch_object()){?>						
+						while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>	   		
+	   		</select></div>
 	   		<div class="div4"><textarea type="text" id="descr"></textarea></div>
 	   		<div class="div4"> <select style="width: 200px;" id="coun">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -326,23 +281,23 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Volumen</h4></div>
 	   		<div class="div4"><h4>Índice de registro de la revista</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>	
+	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>
 	   		<div class="div4"><input onkeypress="return valida(event)" type="text" id="vol"></div>
 	   		<div class="div4"> <input type="text" id="ind"></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div4"><h4>ISSN</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div4"<h4>Propósito</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>		
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub2"></div>	   		
+	   		<div class="div4"><input placeholder="" type="text" id="issn"></div>
+	   		<div class="div4"> <input type="text" class="pub" id="fecpub2"></div>
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
-						
+
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
@@ -355,7 +310,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="indexada(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="indexada(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- ASESORIA -->
@@ -377,7 +332,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea type="text" id="estu"></textarea> </div>	
+	   		<div class="div4"><textarea type="text" id="estu"></textarea> </div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="alc"></textarea></div>
 	   		<div class="div12"></div>
 
@@ -390,24 +345,24 @@ $con = Conectarse();
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
-	   		</select></div>				
+	   		</select></div>
 	   		<div class="div4"><select style="width: 190px;" id="sta">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
-						
+
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><input style="width: 190px;" type="text" id="fecpro"></div>
+	   		<div class="div4"><input class="pro" type="text" id="fecpro"></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div6"><h4>Empresa o dependencia beficiaria </h4></div>
 	   		<div class="div6"><h4>Otros investigadores participantes</h4></div>
 	   		<div class="div12"></div>
@@ -417,7 +372,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="asesoria(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="asesoria(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- CAPITULO DE LIBRO -->
@@ -428,7 +383,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Clave de profesor</h4></div>
 	   		<div class="div4"><h4>Autor(es) del libro</h4></div>
 	   		<div class="div4"><h4>Titulo del libro</h4></div>
-	   		<div class="div12"></div> 
+	   		<div class="div12"></div>
 	   		<div class="div4"><select style="width: 200px;" id="clv">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
@@ -453,7 +408,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo($row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>	
+	   		<div class="div4"><input placeholder="" type="text" id="edi"></div>
 	   		<div class="div4"> <input type="text" id="edic"></div>
 			<div class="div12"></div>
 
@@ -461,13 +416,13 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Pais</h4></div>
 	   		<div class="div4"><h4>Tiraje</h4></div>
 			<div class="div12"></div>
-	   		<div class="div4"><input style="width: 190px;" type="text" id="fecpub3"></div>
+	   		<div class="div4"><input class="pub" type="text" id="fecpub3"></div>
 	   		<div class="div4"> <select style="width: 190px;" id="coun">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -478,7 +433,7 @@ $con = Conectarse();
 
 	   		<div class="div6"><h4>ISBN</h4></div>
 	   		<div class="div6"><h4>Propósito</h4></div>
-	   		<div class="div12"></div> 
+	   		<div class="div12"></div>
 	   		<div class="div6"><input style="width: 300px;" placeholder="" type="text" id="isbn"></div>
 	   		<div class="div6"><select style="width: 300px;" style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
@@ -493,20 +448,20 @@ $con = Conectarse();
 			<div class="div12"></div>
 			<div class="div4"></div><div class="div4"> <h3>Datos del Capítulo del libro</h3></div><div class="div4"></div>
 	   		<div class="div12"></div>
-			
+
 	   		<div class="div4"><h4>Titulo del Capitulo</h4></div>
 			<div class="div4"><h4>De la página</h4></div>
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"><textarea type="text" id="titcap"></textarea> </div>
-	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
 	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="caplibro(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="caplibro(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- CONSULTORIA -->
@@ -529,21 +484,21 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea type="text" id="estu"></textarea></div>	
+	   		<div class="div4"><textarea type="text" id="estu"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="alc"></textarea></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div4"><h4>Pais</h4></div>
 	   		<div class="div4"><h4>Estado Actual</h4></div>
 	   		<div class="div4"><h4>Fecha inicio de proyecto</h4></div>
 	   		<div class="div12"></div>
-	   		
+
 	   		<div class="div4"> <select style="width: 200px;" id="coun">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -557,7 +512,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"> <input style="width: 200px;" type="text" id="fecpro1"></div>
+	   		<div class="div4"> <input class="pro" type="text" id="fecpro1"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>Empresa o dependencia beficiaria </h4></div>
@@ -567,13 +522,13 @@ $con = Conectarse();
 	   		<div class="div4"><textarea type="text" id="emp"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="part"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="bene"></textarea></div>
-	   		<div class="div12"></div> 		
+	   		<div class="div12"></div>
 
 
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="consultoria(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="consultoria(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- LIBRO -->
@@ -616,29 +571,29 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Páginas</h4></div>
 	   		<div class="div4"><h4>Edición </h4></div>
 	   		<div class="div4"><h4>Tiraje</h4></div>
-	   		<div class="div12"></div> 
+	   		<div class="div12"></div>
 	   		<div class="div4"><input placeholder="" onkeypress="return valida(event)" type="text" id="pag"></div>
 	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="edic"></div>
 			<div class="div4"><input placeholder="" type="text" id="tirj"></div>
 			<div class="div12"></div>
-			
+
 			<div class="div4"><h4>ISBN</h4></div>
 	   		<div class="div4"><h4>Pais</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 			<div class="div12"></div>
-	   		<div class="div4"><input placeholder="" type="text" id="isbn"></div>			
+	   		<div class="div4"><input placeholder="" type="text" id="isbn"></div>
 	   		<div class="div4"> <select style="width: 190px;" id="coun">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub4"></div>
+	   		<div class="div4"> <input class="pub" type="text" id="fecpub4"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"></div><div class="div4"><h4>Propósito</h4></div><div class="div4"></div>
@@ -655,7 +610,7 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="libro(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="libro(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- MATERIAL DE APOYO -->
@@ -675,7 +630,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>	
+	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="titu"></textarea></div>
 	   		<div class="div12"></div>
 
@@ -697,18 +652,18 @@ $con = Conectarse();
 		   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 						  $resul=mysqli_query($con,$qri);
 						  while($row1 = $resul->fetch_object()){?>
-						<option value="<?php echo $row1->clave;?>" 
+						<option value="<?php echo $row1->clave;?>"
 							    <?php if($row1->clave==146){
 							    	echo "selected='selected'";
 							    	}?>> <?php echo($row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
 			<div class="div12"></div>
-	   		
+
 	   		<div class="div6"><h4>Fecha de publicación</h4></div>
 	   		<div class="div6"><h4>Propósito</h4></div>
 	   		<div class="div12"></div>
-	   		<div class="div6"> <input style="width: 300px;" type="text" id="fecpub5"></div>
+	   		<div class="div6"> <input class="pub" type="text" id="fecpub5"></div>
 	   		<div class="div6"><select style="width: 300px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
@@ -716,11 +671,11 @@ $con = Conectarse();
 				  	  while($row1 = $resul->fetch_object()){?>
 					<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
-	   		</select></div>  
+	   		</select></div>
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="matap(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="matap(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- MEMORIAS -->
@@ -743,8 +698,8 @@ $con = Conectarse();
 	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="titpre"></textarea></div>
 	   		<div class="div12"></div>
-	   			   		
-	   		
+
+
 			<div class="div4"><h4>Nombre del congreso donde se presento</h4></div>
 			<div class="div4"><h4>Estado Actual</h4></div>
 			<div class="div4"><h4>Pais</h4></div>
@@ -754,7 +709,7 @@ $con = Conectarse();
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT Estado AS nombre, idEstado AS clave FROM estadoactual";
 							  $resul=mysqli_query($con,$qri);
-						while($row1 = $resul->fetch_object()){?>						
+						while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
 	   		</select></div>
@@ -763,7 +718,7 @@ $con = Conectarse();
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -784,28 +739,28 @@ $con = Conectarse();
 				<?php } ?>
 	   		</select></div>
 			 <div class="div4"><input placeholder="" type="text" id="city"></div>
-	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>A la página</h4></div>
 	   		<div class="div4"><h4>Fecha de publicación</h4></div>
 	   		<div class="div4"><h4>Propósito</h4></div>
-	   		<div class="div12"></div>	
+	   		<div class="div12"></div>
 	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub6"></div>	
+	   		<div class="div4"> <input class="pub" type="text" id="fecpub6"></div>
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<option value="0" style="display: none;">Selecciona...</option>
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
-						
+
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 				<?php } ?>
-	   		</select></div>			 
+	   		</select></div>
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="memos(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="memos(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- MEMORIAS EN EXTENSO-->
@@ -825,7 +780,7 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>	
+	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="titpre"></textarea></div>
 	   		<div class="div12"></div>
 
@@ -847,7 +802,7 @@ $con = Conectarse();
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
@@ -868,7 +823,7 @@ $con = Conectarse();
 				<?php } ?>
 	   		</select></div>
 			<div class="div4"><input placeholder="" type="text" id="city"></div>
-	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>	   	
+	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="dela"></div>
 	   		<div class="div12"></div>
 
 	   		<div class="div4"><h4>A la página</h4></div>
@@ -876,7 +831,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Propósito</h4></div>
 	   		<div class="div12"></div>
 	   		<div class="div4"> <input onkeypress="return valida(event)" type="text" id="ala"></div>
-	   		<div class="div4"> <input type="text" style="width: 190px;" type="text" id="fecpub7"></div>	
+	   		<div class="div4"> <input type="text" class="pub" type="text" id="fecpub7"></div>
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
@@ -884,18 +839,18 @@ $con = Conectarse();
 						<option value="0" style="display: none;">Selecciona...</option>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>			 
+	   		</select></div>
 			<div class="div12"></div>
 
 			<div class="div4"></div><div class="div4"><h4>Archvio PDF</h4></div><div class="div4"></div>
 			<div class="div12"></div>
-	   		<div class="div4"></div><div class="div4"> <input style="width: 190px;" type="file" id="fil"></div>	
-				
+	   		<div class="div4"></div><div class="div4"> <input style="width: 190px;" type="file" id="fil"></div>
+
 
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="extenso(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="extenso(this.form)">Guardar</button>
 	   	</form>
 
 	   	<!-- PATENTE-->
@@ -915,11 +870,11 @@ $con = Conectarse();
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
 					<?php } ?>
 	   		</select></div>
-	   		<div class="div4"><textarea autofocus="type="text" id="aut"></textarea></div>	   		
+	   		<div class="div4"><textarea type="text" id="aut"></textarea></div>
 	   		<div class="div4"><textarea placeholder="" type="text" id="titl"></textarea></div>
 	   		<div class="div12"></div>
-	   		
-	   		
+
+
 	   		<div class="div4"><h4>Descripción </h4></div>
 	   		<div class="div4"><h4>Clasificación Internacional de Patentes </h4></div>
 	   		<div class="div4"><h4>Uso </h4></div>
@@ -946,12 +901,12 @@ $con = Conectarse();
 	   			<?php $qri = "SELECT nombrePais AS nombre, idPais AS clave FROM Pais";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
-					<option value="<?php echo $row1->clave;?>" 
+					<option value="<?php echo $row1->clave;?>"
 						    <?php if($row1->clave==146){
 						    	echo "selected='selected'";
 						    	}?>> <?php echo($row1->nombre);?> </option>
 				<?php } ?>
-	   		
+
 	   		</select></div>
  			 <div class="div4"><input placeholder="" type="text" id="num"></div>
 	   		<div class="div12"></div>
@@ -961,7 +916,7 @@ $con = Conectarse();
 	   		<div class="div4"><h4>Propósito</h4></div>
 			 <div class="div12"></div>
 			 <div class="div4"><input placeholder="" type="text" id="user"></div>
-	   		<div class="div4"> <input style="width: 190px;" type="text" id="fecpub8"></div>	
+	   		<div class="div4"> <input class="pub" type="text" id="fecpub8"></div>
 	   		<div class="div4"><select style="width: 190px;" id="propo">
 	   			<?php $qri = "SELECT proposito AS nombre, idProposito AS clave FROM proposito";
 							  $resul=mysqli_query($con,$qri);
@@ -969,12 +924,12 @@ $con = Conectarse();
 						<option value="0" style="display: none;">Selecciona...</option>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->nombre);?> </option>
 					<?php } ?>
-	   		</select></div>			 
+	   		</select></div>
 			<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div12"></div>
 	   		<div class="div5"></div>
-	   	<button class="div1 menta" id="boton" onclick="patente(this.form)">Guardar</button>	   	
+	   	<button class="div2 menta" id="boton" onclick="patente(this.form)">Guardar</button>
 	   	</form>
 
 	   	<div class="div12"></div>

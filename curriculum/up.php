@@ -11,11 +11,12 @@
 	<script type="text/javascript" src="js/funcionesEliminar.js"></script>
 	<script type="text/javascript" src="js/modificar.js"></script>
 	<script type="text/javascript" src="js/funciones.js"> </script>
+	<script type="text/javascript" src="js/produc.js"> </script>
    <!--Jquery de datepicker-->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="js/jquery-ui.css">
     <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -35,20 +36,20 @@
 
 <div id="menu-lateral" class="alto-total">
 	<ul id="menu">
-	<li id="mostrarMenu">Altas<ul id="desplegable">
-			<a href="alta.php"><li>Alta de Profesor</li></a>
-			<a href="laboral.php"><li>Datos Laborales</li></a>
-			<a href="direccion.php"><li>Dirección individualizada</li></a>
-			<a href="docencia.php"><li>Docencia</li>
-			<a href="estudios.php"><li>Estudios Realizados</li></a>
-			<a href="gestion.php"><li>Gestión Academica</li></a>
-			<a href="lgac.php"><li>LGAC's</li></a>
-			<a href="premios.php"><li>Premios y distinciones</li></a>
-			<a href="produccion.php"><li>Producción academica</li></a>
-			<a href="investigacion.php"><li>Proyectos de investigación</li></a>
-			<a href="tutoria.php"><li>Tutorías</li></a>
-			<li></li>
-		</ul></li>
+        <li id="mostrarMenu">Altas<ul id="desplegable">
+                <a href="alta.php"><li>Alta de Profesor</li></a>
+                <a href="laboral.php"><li>Datos Laborales</li></a>
+                <a href="direccion.php"><li>Dirección individualizada</li></a>
+                <a href="docencia.php"><li>Docencia</li>
+                <a href="estudios.php"><li>Estudios Realizados</li></a>
+                <a href="gestion.php"><li>Gestión Academica</li></a>
+                <a href="lgac.php"><li>LGAC's</li></a>
+                <a href="premios.php"><li>Premios y distinciones</li></a>
+                <a href="produccion.php"><li>Producción academica</li></a>
+                <a href="investigacion.php"><li>Proyectos de investigación</li></a>
+                <a href="tutoria.php"><li>Tutorías</li></a>
+                <li></li>
+        </li></ul>
 		<a href="consulta.php"><li>Consulta</li></a>
 		<a href="alta.php?s=1"><li>Cerrar Sesión</li></a>
 	</ul>
