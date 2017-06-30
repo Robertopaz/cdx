@@ -40,7 +40,7 @@ $con = Conectarse();
 	   		<div class="div4">
 	   		<select style="width: 200px;" id="clv" >
 	   			<option value="0" style="display: none;">Selecciona...</option>
-	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
+	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor WHERE habilitado=1 ORDER BY nombre";
 					  $resul=mysqli_query($con,$qri);
 					  while($row1 = $resul->fetch_object()){?>
 				<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
@@ -59,8 +59,8 @@ $con = Conectarse();
 	   		<div class="div12"></div>
 
 	   		<div class="div4"> <h4>Nombramiento</h4></div>
-	   		<div class="div4"> <h4>Dedicación<h4></div>
-	   		<div class="div4"> <h4>Dependencia de educación superior de adscripción<h4></div>
+            <div class="div4"> <h4>Dedicación</h4></div>
+            <div class="div4"> <h4>Dependencia de educación superior de adscripción</h4></div>
 
 	   		<div class="div12"></div>
 

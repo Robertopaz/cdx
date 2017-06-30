@@ -41,7 +41,7 @@ $con = Conectarse();
 
 	   		<div class="div4"><select style="width: 200px;" id="clv" >
 	   			<option value="0" style="display: none;">Selecciona...</option>
-	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor ORDER BY nombre";
+	   			<?php $qri = "SELECT nombre AS nombre, cveProfesor AS clave FROM profesor WHERE habilitado=1  ORDER BY nombre";
 							  $resul=mysqli_query($con,$qri);
 						while($row1 = $resul->fetch_object()){?>
 						<option value="<?php echo $row1->clave;?>"> <?php echo ($row1->clave." ".$row1->nombre);?> </option>
